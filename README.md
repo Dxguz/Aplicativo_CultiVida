@@ -35,7 +35,7 @@ git clone <URL_DEL_REPOSITORIO> CultiVidaApp
 cd CultiVidaApp
 ```
 
-> Reemplaza `<URL_DEL_REPOSITORIO>` con la URL SSH o HTTPS de tu repositorio Git.
+> https://github.com/Dxguz/Aplicativo_CultiVida.git
 
 ### 2. Configurar Firebase
 
