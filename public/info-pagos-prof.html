@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-info-pagos-prof.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed" style="display: none;">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Configuración del perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <div class="sb-sidenav-menu-heading">Profesional agrónomo</div>
+                        <a class="nav-link" href="panel-profesional.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-comments"></i></div>
+                            Chats con Agricultores
+                        </a>
+                        <a class="nav-link" href="eventos-p-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar"></i></div>
+                            Eventos
+                        </a>
+                        <a class="nav-link" href="comunidad-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                            Comunidad
+                        </a>
+                        <a class="nav-link" href="info-pagos-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                            Información pagos
+                        </a>
+                        <a class="nav-link" href="notif-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-bell"></i></i></div>
+                            Notificaciones
+                        </a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+        <!-- LUGAR DONDE EDITAR NUEVO CONTENIDO -->
+        <div id="layoutSidenav_content">
+            <main class="container-fluid px-4 py-4">
+
+                <h1 class="mt-4 mb-4 fw-bold">
+                    <i class="fa-solid fa-file-invoice-dollar me-2"></i>
+                    Configuración de Pagos
+                </h1>
+
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-body">
+
+                        <!-- Activar pagos -->
+                        <div class="form-check form-switch mb-4">
+                            <input class="form-check-input" type="checkbox" id="activarPagos">
+                            <label class="form-check-label fw-semibold" for="activarPagos">
+                                Activar cobro por asesorías
+                            </label>
+                        </div>
+
+                        <hr>
+
+                        <!-- Cuenta destino -->
+                        <h4 class="mt-3 mb-3 fw-semibold">
+                            <i class="fa-solid fa-building-columns me-2"></i>
+                            Cuenta de destino
+                        </h4>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="form-label">Banco</label>
+                                <input type="text" class="form-control" id="bancoDestino" placeholder="Ej: Bancolombia">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Tipo de cuenta</label>
+                                <select class="form-select" id="tipoCuentaDestino">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Ahorros">Ahorros</option>
+                                    <option value="Corriente">Corriente</option>
+                                    <option value="Nequi">Nequi</option>
+                                    <option value="Daviplata">Daviplata</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 d-none" id="campoTipoCuentaOtro">
+                                <label class="form-label">¿Cuál?</label>
+                                <input type="text" class="form-control" id="tipoCuentaOtro"
+                                    placeholder="Especificar tipo de cuenta">
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label class="form-label">Número de cuenta</label>
+                                <input type="text" class="form-control" id="numeroCuentaDestino"
+                                    placeholder="Número de cuenta">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Titular</label>
+                                <input type="text" class="form-control" id="titularCuentaDestino"
+                                    placeholder="Nombre del titular">
+                            </div>
+
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Tarifas -->
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="fw-semibold mb-0">
+                                <i class="fa-solid fa-tags me-2"></i>
+                                Tarifas de asesorías
+                            </h4>
+                            <button class="btn btn-outline-success btn-sm" id="agregarTarifaBtn">
+                                <i class="fa-solid fa-plus me-1"></i>
+                                Agregar tarifa
+                            </button>
+                        </div>
+
+                        <div id="listaTarifas" class="row g-3"></div>
+
+                        <div class="text-end mt-4">
+                            <button class="btn btn-primary px-4" id="guardarConfigPagosBtn">
+                                <i class="fa-solid fa-floppy-disk me-2"></i>
+                                Guardar configuración
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+        <!-- FINAL DE EDITAR NUEVO CONTENIDO -->
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script type="module" src="src/js/scripts-p-prof.js"></script>
+        
+        <script type="module" src="src/js/auth-guard.js"></script>
+        <script type="module" src="src/js/info-pagos-prof.js"></script>
+        <script src="src/js/buscador-global.js"></script>
+
+</body>
+
+</html>

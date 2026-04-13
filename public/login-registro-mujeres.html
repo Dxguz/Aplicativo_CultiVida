@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Registro</title>
+  <link rel="stylesheet" href="src/css/estilos-log-reg.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+  <header class="navbar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="contenedor__todo">
+      <div class="caja__trasera">
+        <div class="caja__trasera-login">
+          <h3>¿Ya tienes una cuenta?</h3>
+          <p>Inicia sesión para entrar en la página</p>
+          <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+        </div>
+        <div class="caja__trasera-register">
+          <h3>¿Aún no tienes una cuenta?</h3>
+          <p>Regístrate para que puedas iniciar sesión</p>
+          <button id="btn__registrarse">Registrarse</button>
+        </div>
+      </div>
+
+      <div class="contenedor__login-register">
+        <!-- Login -->
+        <form id="formLogin" class="formulario__login" autocomplete="on">
+          <h2>Iniciar Sesión</h2>
+          <input id="loginEmail" type="email" placeholder="Correo Electrónico" required>
+          <div class="password-container">
+            <input id="loginPassword" type="password" placeholder="Contraseña" required>
+            <i class="fa-solid fa-eye toggle-password" data-target="loginPassword"></i>
+          </div> <button id="btnLogin" type="submit">Entrar</button>
+
+          <div class="terms">
+            <label class="checkbox-container">
+              <input type="checkbox" id="termsLogin">
+              <span class="checkmark"></span>
+              <span>
+                Aceptar
+                <a href="#" id="openTermsLogin">términos y condiciones</a>
+              </span>
+            </label>
+          </div>
+
+
+          <button type="button" id="googleLoginBtn">Iniciar con Google</button>
+          <button type="button" id="recuperarPasswordBtn">¿Olvidaste tu contraseña?</button>
+          <div id="loginMsg" class="msgbox" aria-live="polite"></div>
+        </form>
+
+        <!-- Registro -->
+        <form id="formRegister" class="formulario__register" autocomplete="on">
+          <h2>Registrarse</h2>
+
+          <div class="field">
+            <label class="field-label">Tipo de cuenta</label>
+            <div class="custom-select-wrap">
+              <select id="roleSelect" required class="custom-select">
+                <option value="">Selecciona tipo</option>
+                <option value="mujer_rural">Mujer Rural</option>
+              </select>
+            </div>
+          </div>
+
+          <input id="regEmail" type="email" placeholder="Correo Electrónico" required>
+          <div class="password-container">
+            <input id="regPassword" type="password" placeholder="Contraseña (8 caracteres, letras, números y símbolo)"
+              required>
+            <i class="fa-solid fa-eye toggle-password" data-target="regPassword"></i>
+          </div>
+          <button id="btnRegister" type="submit">Registrarse</button>
+
+          <div class="terms">
+            <label class="checkbox-container">
+              <input type="checkbox" id="termsRegister">
+              <span class="checkmark"></span>
+              <span>
+                Aceptar
+                <a href="#" id="openTermsRegister">términos y condiciones</a>
+              </span>
+            </label>
+          </div>
+
+
+          <div id="registerMsg" class="msgbox" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Términos - Mujeres Rurales -->
+  <div id="termsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeTerms">&times;</span>
+      <h2>Términos y Condiciones de Uso</h2>
+
+      <div class="modal-body">
+
+        <div class="terms-section">
+          <h3>1. Uso del Aplicativo</h3>
+          <ul>
+            <li>El uso de esta plataforma implica la aceptación de estos términos y condiciones.</li>
+            <li>El aplicativo debe utilizarse exclusivamente para fines lícitos relacionados con actividades agrícolas y
+              formación básica.</li>
+            <li>Debe mantenerse siempre el respeto hacia las demás usuarias y hacia la normativa vigente.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h3>2. Responsabilidad de la Usuaria</h3>
+          <ul>
+            <li>Cada usuaria es responsable de la veracidad y actualización de la información suministrada en su perfil.
+            </li>
+            <li>Es responsabilidad de la usuaria mantener la confidencialidad de sus credenciales de acceso.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h3>3. Protección de Datos</h3>
+          <ul>
+            <li>Los datos personales serán tratados conforme a la Ley 1581 de 2012 sobre Protección de Datos Personales
+              en Colombia.</li>
+            <li>La información recolectada será utilizada únicamente para fines operativos del aplicativo.</li>
+            <li>Las titulares podrán solicitar la actualización, corrección o eliminación de su información personal.
+            </li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h3>4. Alcance de la Plataforma</h3>
+          <ul>
+            <li>La plataforma actúa como un espacio digital de formación y apoyo para mujeres rurales.</li>
+            <li>No sustituye procesos académicos formales ni certificaciones oficiales, salvo que se indique
+              expresamente.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h3>5. Cursos y Contenido Formativo</h3>
+          <ul>
+            <li>Los cursos ofrecidos en el aplicativo están enfocados exclusivamente en contenidos relacionados con el
+              cultivo de maíz.</li>
+            <li>El material proporcionado tiene carácter principalmente informativo.</li>
+            <li>La aplicación práctica de los contenidos aprendidos es responsabilidad exclusiva de cada usuaria.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h3>6. Normas de Conducta</h3>
+          <ul>
+            <li>No se permite la publicación de contenido ofensivo, ilegal o engañoso.</li>
+            <li>El uso indebido del sistema podrá dar lugar a la suspensión inmediata de la cuenta sin previo aviso.
+            </li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h3>7. Uso del Chatbot con Inteligencia Artificial</h3>
+          <ul>
+            <li>El aplicativo puede incorporar herramientas automatizadas basadas en inteligencia artificial.</li>
+            <li>Las respuestas del chatbot son informativas y orientativas, y no constituyen asesoría profesional
+              personalizada.</li>
+            <li>La información puede contener imprecisiones o no estar actualizada.</li>
+            <li>Las decisiones adoptadas con base en dicha información son responsabilidad exclusiva de la usuaria.</li>
+          </ul>
+        </div>
+
+        <div class="terms-section">
+          <h3>8. Actualizaciones</h3>
+          <p>
+            El aplicativo podrá actualizar estos términos en cualquier momento. El uso continuo de la plataforma
+            implicará
+            la aceptación de los cambios realizados.
+          </p>
+        </div>
+
+      </div>
+
+      <button id="acceptTermsModal">Entendido</button>
+    </div>
+  </div>
+
+
+
+  <script type="module" src="src/js/scripts-log-reg-mujeres.js"></script>
+</body>
+
+</html>

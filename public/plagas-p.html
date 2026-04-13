@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Plagas papa</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-cultivos.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar" aria-label="Buscar..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item">
+                <a class="nav-link" href="Rol.html" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="info-web.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            Espacio Informativo
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Cultivos</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_1" aria-expanded="false" aria-controls="collapsePages_1">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Papa
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_1" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_1">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_1" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_1">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_1" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_1">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-p.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-p.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-p.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-papa-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_2" aria-expanded="false" aria-controls="collapsePages_2">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Maíz
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_2" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_2">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_2" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_2">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_2" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_2">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-m.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-m.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-m.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-maiz-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_3" aria-expanded="false" aria-controls="collapsePages_3">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Arveja
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_3" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_3">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_3" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_3">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_3" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_3">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-a.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-a.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-a.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-arveja-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <div id="layoutSidenav_content">
+            <main>
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bolder">¿Conoces las plagas que afectan al cultivo de papa?</h1>
+                            <p class="lead fw-normal text-muted mb-0">Acá te contamos las plagas más
+                                comunes dentro de la Provincia de Ubaté</p>
+                        </div>
+
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8">
+
+                                <h2 class="fw-bolder mb-3 text-center">Gusano Blanco, gorgojo de los Andes</h2>
+                                <h6 class="fw-bolder mb-3 text-center">(Premnotrypes vorax)</h6>
+
+                                <div class="text-center mb-4">
+                                    <img class="img-fluid img-fixed-size" src="src/img/plaga_gusano_blanco.jpg"
+                                        alt="Imagen Tema 1" />
+                                </div>
+
+                                <div class="accordion mb-5" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingOne"><button class="accordion-button"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                                <strong>Características</strong></button></h3>
+                                        <div class="accordion-collapse collapse show" id="collapseOne"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>El Gorgojo de los Andes es reconocido como uno de los insectos que
+                                                    más impacto genera en la
+                                                    producción de papa, dado que su actividad destructiva puede
+                                                    comprometer significativamente
+                                                    la cosecha.</p>
+                                                <p><strong>Etapa 1:</strong> la larva es de color blanco cremoso,
+                                                    curvada en forma de 'C', y se distingue por tener una cabeza
+                                                    definida,
+                                                    aunque carece de patas. </p>
+                                                <p><strong>Etapa 2:</strong> el insecto adulto es un gorgojo con un
+                                                    caparazón duro y arrugado que, usualmente en
+                                                    tonalidades café oscuro o negro, se mimetiza con el suelo.</p>
+                                                <p>Las principales fuentes de infestación provienen de lotes vecinos que
+                                                    han sido recién preparados
+                                                    o cosechados, de lugares cercanos donde se almacena papa, y de
+                                                    terrenos donde se practica el
+                                                    monocultivo sin rotación.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingTwo"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                <strong>Daños</strong></button></h3> </button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseTwo"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>El daño más severo lo ocasiona la larva al alimentarse directamente
+                                                    del tubérculo, creando túneles o galerías internas
+                                                    que deprecian severamente la calidad y valor comercial de la papa.
+                                                    Cuando la larva finaliza su alimentación y abandona
+                                                    el tubérculo, deja agujeros visibles en la superficie. El momento de
+                                                    mayor riesgo de infestación ocurre durante la
+                                                    etapa de formación de los tubérculos. El adulto también contribuye
+                                                    al daño, al generar lesiones características en forma
+                                                    de medialuna en el follaje de las plantas.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingThree"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree"><strong>Manejo de la
+                                                    plaga</strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseThree"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>Realizar una preparación adecuada del suelo antes de la siembra.
+                                                    </li>
+                                                    <br>
+                                                    <li>Evitar dejar restos de cosecha, plantas sin recolectar o
+                                                        tubérculos
+                                                        abandonados en los lotes.</li>
+                                                    <br>
+                                                    <li>Implementar la rotación de cultivos para interrumpir el ciclo de
+                                                        vida de la plaga.</li>
+                                                    <br>
+                                                    <li>Dejar el suelo descubierto por un tiempo, lo que facilita que
+                                                        aves e
+                                                        insectos depredadores naturales eliminen las larvas expuestas.
+                                                    </li>
+                                                    <br>
+                                                    <li>Construir aporques altos alrededor de las plantas.</li>
+                                                    <br>
+                                                    <li>Recolectar la cosecha de manera oportuna tan pronto como se
+                                                        alcance
+                                                        la madurez fisiológica del cultivo.</li>
+                                                    <br>
+                                                    <li>Emplear insecticidas que cuenten con el registro oficial para el
+                                                        control de esta plaga en la papa.</li>
+                                                    <br>
+                                                    <li>Dirigir las aplicaciones de los productos químicos hacia la base
+                                                        de
+                                                        la planta y el suelo circundante.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                                <h2 class="fw-bolder mb-3 text-center">Polilla Guatemalteca</h2>
+                                <h6 class="fw-bolder mb-3 text-center">(Tecia solanivora)</h6>
+
+                                <div class="text-center mb-4">
+                                    <img class="img-fluid img-fixed-size" src="src/img/plaga-polilla-guatemalteca.jpg"
+                                        alt="Imagen Tema 2" />
+                                </div>
+
+                                <div class="accordion mb-5 mb-xl-0" id="accordionExample2">
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingOne_2"><button class="accordion-button"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2"
+                                                aria-expanded="true"
+                                                aria-controls="collapseOne2"><strong>Características</strong>
+                                            </button></h3>
+                                        <div class="accordion-collapse collapse show" id="collapseOne2"
+                                            aria-labelledby="headingOne_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <p>La Polilla Guatemalteca es un insecto reconocido como una de las
+                                                    plagas más críticas
+                                                    en la producción de papa. El adulto es una pequeña palomilla de
+                                                    color generalmente
+                                                    gris o marrón. Su ciclo biológico, que incluye la fase de larva (que
+                                                    es la que causa el daño),
+                                                    se mantiene activo durante todo el ciclo del cultivo e incluso en la
+                                                    fase de
+                                                    almacenamiento del tubérculo. Su capacidad de causar estragos es tan
+                                                    alta que
+                                                    frecuentemente las estrategias basadas únicamente en el control
+                                                    químico resultan
+                                                    insuficientes para detener las afectaciones.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingTwo_2"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo2"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTwo2"><strong>Daños</strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseTwo2"
+                                            aria-labelledby="headingTwo_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <p>El ataque de esta plaga genera importantes pérdidas económicas al
+                                                    deteriorar la
+                                                    apariencia del tubérculo y volverlo inservible para propósitos de
+                                                    consumo humano,
+                                                    animal o como semilla para futuras siembras. El daño principal
+                                                    consiste en la
+                                                    perforación de galerías al interior de la papa, lo cual no solo
+                                                    destruye el tejido,
+                                                    sino que también facilita la entrada de microorganismos secundarios
+                                                    (como hongos y bacterias)
+                                                    que causan pudriciones y una destrucción total del tubérculo.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingThree_2"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree2"
+                                                aria-expanded="false" aria-controls="collapseThree2"><strong>Manejo de
+                                                    la plaga</strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseThree2"
+                                            aria-labelledby="headingThree_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>Seleccionar y tratar previamente la semilla para asegurar su
+                                                        sanidad.</li>
+                                                    <br>
+                                                    <li>Proteger la semilla almacenada utilizando cubiertas físicas,
+                                                        espolvoreando insecticidas
+                                                        secos y manteniendo el lugar con luz difusa.</li>
+                                                    <br>
+                                                    <li>Fomentar la utilización y conservación de los enemigos naturales
+                                                        de la polilla.</li>
+                                                    <br>
+                                                    <li>Realizar la siembra a una profundidad adecuada (aproximadamente
+                                                        15 cm) y practicar
+                                                        aporques altos de manera preventiva.</li>
+                                                    <br>
+                                                    <li>Mantener un riego constante en el cultivo, ya que esto ayuda a
+                                                        prevenir la formación de
+                                                        grietas en el suelo por donde la polilla accede a los
+                                                        tubérculos.</li>
+                                                    <br>
+                                                    <li>Controlar y destruir las malezas presentes en el lote.</li>
+                                                    <br>
+                                                    <li>Realizar la recolección de la cosecha de manera oportuna y
+                                                        evitar bajo cualquier
+                                                        circunstancia dejar papas expuestas en el campo (papas de
+                                                        rechazo o "toyas").</li>
+                                                    <br>
+                                                    <li>No abandonar los cultivos y, si es necesario por un alto nivel
+                                                        de daño, proceder a
+                                                        destruirlos y enterrar los residuos para evitar que se
+                                                        conviertan en focos de infestación.</li>
+                                                    <br>
+                                                    <li>Aplicar insecticidas que cuenten con registro oficial específico
+                                                        para el control de la plaga.</li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script src="src/js/scripts-cultivos.js"></script>
+     
+        <script src="src/js/offline-status.js"></script>
+        <script src="src/js/buscador-global.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,651 @@
+/* ======================================================
+   VARIABLES GENERALES
+====================================================== */
+:root {
+    --green-dark: #1b5e20;
+    --green-main: #2e7d32;
+    --green-soft: #e8f5e9;
+    --green-light: #a5d6a7;
+    --gray-border: #e0e0e0;
+    --gray-text: #555;
+    --bg-white: #ffffff;
+    --radius: 14px;
+    --transition: all .25s ease;
+    --shadow-soft: 0 6px 18px rgba(0,0,0,.08);
+}
+
+/* ======================================================
+   FEED GENERAL
+====================================================== */
+#feed {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ======================================================
+   POST / TARJETA
+====================================================== */
+.post-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid #e6ebe7;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    animation: fadeUp .25s ease-out;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.post {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e6ebe7;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    animation: fadeUp .25s ease-out;
+    transition: box-shadow .2s ease, transform .2s ease;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.post-card:hover {
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   HEADER
+========================= */
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #edf1ee;
+}
+
+.post-header img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e1e7e3;
+}
+
+.post-header b {
+    color: #1f3d2b;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.post-header span {
+    display: block;
+    font-size: 12px;
+    color: #8a9a92;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+.post-text {
+    margin: 14px 0;
+    color: #4a5d54;
+    font-size: 15px;
+    line-height: 1.6;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    white-space: normal;
+    display: block;
+}
+
+.repost-box {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+/* =========================
+   MEDIA
+========================= */
+.post-media img,
+.post-media video {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-top: 10px;
+    border: 1px solid #e6ebe7;
+}
+
+/* =========================
+   FOOTER (likes, comentarios)
+========================= */
+.post-footer {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #e6ebe7;
+}
+
+/* BOTONES */
+.post-footer button {
+    background: transparent;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: #5c7468;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .15s ease;
+}
+
+/* HOVER SUTIL */
+.post-footer button:hover {
+    background-color: #f3f6f4;
+    color: #2f6f44;
+    transform: translateY(-1px);
+}
+
+/* ACTIVO (like marcado) */
+.post-footer button.active {
+    color: #2f6f44;
+    font-weight: 600;
+}
+
+/* ICONOS */
+.post-footer button i {
+    font-size: 16px;
+}
+
+/* CONTADOR */
+.post-footer button span {
+    font-size: 13px;
+    color: #7a8f85;
+}
+
+/* ===================================================
+   MENÚ ⋮
+=================================================== */
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+.post-menu {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 50;
+  min-width: 160px;
+  border: 1px solid #e0e0e0;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-menu button {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  font-size: .9rem;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-menu button:hover {
+  background: #f5f5f5;
+  padding-left: 18px;
+}
+
+.post-menu .text-danger:hover {
+  background: #ffe6e6;
+  color: #dc3545;
+}
+
+/* ===================================================
+   COMENTARIOS
+=================================================== */
+.comments-thread {
+  background: var(--green-soft);
+  border-radius: 14px;
+  padding: 12px;
+  margin-top: 14px;
+  display: none;
+  border: 1px solid var(--green-main);
+}
+
+.comments-thread.open {
+  display: block;
+}
+
+.comments-list {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green-main) transparent;
+}
+
+.comment-item {
+  background: #f0f8f5;
+  border-left: 4px solid var(--green-main);
+  padding: 10px !important;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-header .badge {
+  background: var(--green-main) !important;
+  color: white !important;
+  font-size: 0.7rem;
+}
+
+.comment-text {
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.replies-list {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-left: 2px solid #d4edda;
+  padding-left: 8px;
+}
+
+.reply-item {
+  background: #e8f6f1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  border-left: 3px solid var(--green-main);
+}
+
+.reply-item .badge {
+  background: var(--green-main) !important;
+  color: white !important;
+}
+
+.reply-item p {
+  margin-bottom: 0;
+  color: #333;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Botón de respuesta */
+.btn-link {
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.btn-link:hover {
+  background: rgba(46, 125, 50, 0.1);
+  transform: scale(1.05);
+}
+
+.comment {
+  padding: 6px 0;
+}
+
+/* ======================================================
+   BOTONES GENERALES
+====================================================== */
+.btn {
+    border-radius: 10px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--green-main);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--green-dark);
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--green-main);
+    border: none;
+}
+
+.btn-success:hover {
+    background: var(--green-dark);
+}
+
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: #d5d5d5;
+}
+
+/* Botón comentar */
+.btn-comment {
+    width: 100%;
+    margin-top: 6px;
+    background: var(--green-soft);
+    color: var(--green-dark);
+    border: 1px solid var(--green-light);
+}
+
+.btn-comment:hover {
+    background: var(--green-light);
+}
+
+/* ======================================================
+   LIKE (MICRO-INTERACCIÓN IG)
+====================================================== */
+.like-btn {
+    cursor: pointer;
+    color: #777;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.like-btn.active {
+    color: #e53935;
+    animation: pop .2s ease;
+}
+
+@keyframes pop {
+    50% { transform: scale(1.25); }
+}
+
+/* ======================================================
+   COMENTARIOS
+====================================================== */
+.comments {
+    margin-top: 12px;
+    padding-left: 12px;
+    border-left: 3px solid var(--green-light);
+}
+
+.comment {
+    margin-top: 8px;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.comment.highlight {
+    background: var(--green-soft);
+    border-left: 4px solid var(--green-main);
+}
+
+.comment b {
+    color: var(--green-dark);
+}
+
+/* Responder */
+.reply-btn {
+    background: none;
+    border: none;
+    color: var(--green-main);
+    font-size: 13px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.reply-btn:hover {
+    text-decoration: underline;
+}
+
+/* Indicador "Respondiendo a..." */
+.replying-to {
+    font-size: 12px;
+    color: var(--green-dark);
+    background: var(--green-soft);
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+/* ======================================================
+   MODALES (VENTANA EMERGENTE)
+====================================================== */
+.custom-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+}
+
+.custom-modal-content {
+    background: var(--bg-white);
+    width: 100%;
+    max-width: 480px;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.2);
+    animation: modalScale .25s ease;
+}
+
+@keyframes modalScale {
+    from { transform: scale(.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.custom-modal-content h3 {
+    color: var(--green-dark);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.custom-modal-content textarea {
+    resize: none;
+    border-radius: 10px;
+}
+
+/* Botones del modal mismo tamaño */
+.custom-modal-content .btn {
+    min-width: 110px;
+}
+
+/* ======================================================
+   NOTIFICACIONES
+====================================================== */
+.notification-bell button {
+    position: relative;
+}
+
+.bell-dot {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    70% { transform: scale(1.4); opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Toast */
+.toast {
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 576px) {
+    .custom-modal-content {
+        max-width: 92%;
+        padding: 16px;
+    }
+
+    .post-card {
+        padding: 14px;
+    }
+
+    .post-text {
+        font-size: 14px;
+    }
+}
+/* Animación para la campana de notificaciones */
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+
+#notificationBell.shake-animation {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Estilos para el badge de notificaciones - Verde */
+#notificationBadge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #2e7d32;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#notificationBadge.show {
+  display: flex;
+}
+
+/* ========================================
+   ESTILOS VERDES PARA COMUNIDADES
+   ======================================== */
+
+.btn-primary {
+  --bs-btn-bg: #2e7d32 !important;
+  --bs-btn-border-color: #2e7d32 !important;
+  --bs-btn-hover-bg: #1b5e20 !important;
+  --bs-btn-hover-border-color: #1b5e20 !important;
+  --bs-btn-active-bg: #0d4620 !important;
+  --bs-btn-active-border-color: #0d4620 !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: #1b5e20 !important;
+  border-color: #1b5e20 !important;
+}
+
+/* Formulario de publicación */
+#postModalContent {
+  border-color: #2e7d32 !important;
+}
+
+#postModalContent:focus {
+  border-color: #1b5e20 !important;
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25) !important;
+}
+
+/* Input de archivo */
+#postModalMedia {
+  border-color: #2e7d32 !important;
+}
+
+#postModalMedia:focus {
+  border-color: #1b5e20 !important;
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25) !important;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.fallback-icon {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 18px;
+}
+
+/* Fin estilos verdes */

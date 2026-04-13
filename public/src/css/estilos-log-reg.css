@@ -1,0 +1,484 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: url(../img/FondoRegistro.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  background-color: white;
+  padding: 10px 30px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+
+main {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.contenedor__todo {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.caja__trasera {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 255, 136, 0.523);
+}
+
+.caja__trasera div {
+  margin: 100px 40px;
+  color: white;
+  transition: all 500ms;
+}
+
+.caja__trasera div p,
+.caja__trasera button {
+  margin-top: 30px;
+}
+
+.caja__trasera div h3 {
+  font-weight: 400;
+  font-size: 26px;
+}
+
+.caja__trasera div p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.caja__trasera button {
+  padding: 10px 40px;
+  border: 2px solid #fff;
+  font-size: 14px;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  outline: none;
+  transition: all 300ms;
+}
+
+.caja__trasera button:hover {
+  background: #fff;
+  color: rgba(21, 192, 75, 0.644);
+}
+
+/*Formularios*/
+
+.contenedor__login-register {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  top: -185px;
+  left: 10px;
+  transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.contenedor__login-register form {
+  width: 100%;
+  padding: 60px 30px;
+  background: white;
+  position: absolute;
+  border-radius: 20px;
+}
+
+.contenedor__login-register form h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 18px;
+  color: rgba(21, 192, 75, 0.85);
+}
+
+.contenedor__login-register form input,
+.contenedor__login-register form select {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  background: #F2F2F2;
+  font-size: 15px;
+  outline: none;
+  border-radius: 10px;
+}
+
+.contenedor__login-register form button {
+  padding: 12px 40px;
+  margin-top: 26px;
+  border: none;
+  font-size: 15px;
+  background: rgba(21, 192, 75, 0.85);
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  outline: none;
+  border-radius: 10px;
+}
+
+.contenedor__login-register form button[type="button"] {
+  background: transparent;
+  color: rgba(21, 192, 75, 0.9);
+  border: 2px solid rgba(21, 192, 75, 0.12);
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* Select custom */
+.custom-select-wrap {
+  position: relative;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: linear-gradient(180deg, #fff, #f6fff2);
+  padding-right: 44px;
+  background-image: linear-gradient(45deg, transparent 50%, #6bbf5b 50%), linear-gradient(135deg, #6bbf5b 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+/* message boxes */
+.msgbox {
+  margin-top: 12px;
+  min-height: 20px;
+  font-size: 14px;
+}
+
+.msgbox .inner {
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.msgbox.success .inner {
+  background: #e9f7ef;
+  color: #1f7a3a;
+  border: 1px solid rgba(31, 122, 58, 0.12);
+  box-shadow: 0 6px 18px rgba(31, 122, 58, 0.06);
+}
+
+.msgbox.error .inner {
+  background: #fff1f1;
+  color: #b00020;
+  border: 1px solid rgba(176, 0, 32, 0.08);
+  box-shadow: 0 6px 18px rgba(176, 0, 32, 0.04);
+}
+
+.msgbox.info .inner {
+  background: #eef7ff;
+  color: #0f5fa8;
+  border: 1px solid rgba(15, 95, 168, 0.08);
+  box-shadow: 0 6px 18px rgba(15, 95, 168, 0.04);
+}
+
+/* small helpers */
+.field {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.field-label {
+  display: block;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* fallback original classes kept */
+.formulario__login {
+  opacity: 1;
+  display: block;
+}
+
+.formulario__register {
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+
+  main {
+    margin-top: 60px;
+  }
+
+  .caja__trasera {
+    max-width: 350px;
+    height: auto;
+    /* quitar altura fija */
+    flex-direction: column;
+    margin: auto;
+    position: relative;
+  }
+
+  .caja__trasera div {
+    margin: 20px 0;
+    position: relative;
+    /* antes era absolute */
+  }
+
+  .contenedor__login-register {
+    top: 0;
+    /* quitar desplazamiento negativo */
+    left: 0;
+    margin: 20px auto 0 auto;
+    max-width: 360px;
+    position: relative;
+  }
+
+  .contenedor__login-register form {
+    position: relative;
+    /* evitar absolute en móvil */
+    padding: 28px;
+  }
+
+  .custom-select {
+    background-position:
+      calc(100% - 18px) calc(1em + 1px),
+      calc(100% - 13px) calc(1em + 1px);
+  }
+}
+
+
+/* ===============================
+   CHECKBOX PERSONALIZADO
+================================ */
+.terms {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-container input {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid rgba(21, 192, 75, 0.85);
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-container input:checked+.checkmark {
+  background-color: rgba(21, 192, 75, 0.85);
+}
+
+.checkbox-container input:checked+.checkmark::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+
+.terms a {
+  color: rgba(21, 192, 75, 0.9);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ===============================
+   MODAL
+================================ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  padding: 30px;
+  animation: fadeIn 0.3s ease;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: rgba(21, 192, 75, 0.85);
+}
+
+.modal-body {
+  max-height: 60vh;
+  /* más adaptable y responsive */
+  overflow-y: auto;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  padding-right: 8px;
+}
+
+
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(21, 192, 75, 0.85);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===============================
+   ESTRUCTURA VISUAL TÉRMINOS
+================================ */
+
+.terms-section {
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f9fdf9;
+  border: 1px solid rgba(21, 192, 75, 0.08);
+  transition: all 0.25s ease;
+}
+
+.terms-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+}
+
+.terms-section h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: rgba(21, 192, 75, 0.9);
+  font-weight: 700;
+}
+
+.terms-section ul {
+  padding-left: 18px;
+}
+
+.terms-section li {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.terms-section p {
+  color: #444;
+}
+
+/* Scroll elegante */
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(21, 192, 75, 0.6);
+  border-radius: 6px;
+}
+
+
+
+/* Ocultar/mostrar contraseña */
+.password-container {
+  position: relative;
+  width: 100%;
+  margin-top: 16px;
+  /* ahora el espacio lo controla el contenedor */
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+  margin-top: 0;
+}
+
+.password-container i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-45%);
+  transform: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 16px;
+}
+
+.password-container i:hover {
+  color: #000;
+}

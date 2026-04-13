@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Recomendaciones papa</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-cultivos.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar" aria-label="Buscar..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item">
+                <a class="nav-link" href="Rol.html" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="info-web.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            Espacio Informativo
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Cultivos</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_1" aria-expanded="false" aria-controls="collapsePages_1">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Papa
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_1" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_1">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_1" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_1">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_1" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_1">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-p.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-p.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-p.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-papa-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_2" aria-expanded="false" aria-controls="collapsePages_2">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Maíz
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_2" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_2">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_2" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_2">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_2" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_2">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-m.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-m.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-m.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-maiz-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_3" aria-expanded="false" aria-controls="collapsePages_3">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Arveja
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_3" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_3">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_3" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_3">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_3" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_3">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-a.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-a.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-a.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-arveja-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <!-- Header-->
+                <header class="py-5">
+                    <div class="container px-5">
+                        <div class="container px-5">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-xxl-6">
+                                    <div class="text-center my-5">
+                                        <h1 class="fw-bolder mb-3">Recomendaciones para el cultivo de Arveja, cosecha
+                                            calidad
+                                            y fortalece tu productividad"</h1>
+                                        <p class="lead fw-normal text-muted mb-4">Tu arveja merece los mejores cuidados.
+                                            Te enseñamos los trucos de manejo y las técnicas sencillas para que consigas
+                                            una arveja de excelente calidad. Además, te mostramos cómo este cultivo le
+                                            da fuerza y salud a tu suelo.</p>
+                                        <a class="btn btn-success btn-lg" href="#scroll-target">Explorar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </header>
+                <!-- section one-->
+                <section class="py-5 bg-light" id="scroll-target">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0 img-cultivo-fijo"
+                                    src="src/img/Climaysuelo.jfif" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Clima y Suelo </h2>
+                                <p class="lead fw-normal text-muted mb-0">La arveja se adapta muy bien a diferentes
+                                    climas, pero produce mejor en climas con temperaturas de 14 a 20 grados centígrados.
+                                    Se puede cultivar en diferentes tipos de suelos. Sin embargo, las mejores cosechas
+                                    se obtienen en suelos fértiles, bien drenados y con buen contenido de materia
+                                    orgánica..</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section two-->
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0"
+                                    src="src/img/terrenoarverja.jpeg" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Preparación del terreno </h2>
+                                <p class="lead fw-normal text-muted mb-0">Para la siembra de arvejas, una arada y dos o
+                                    más rastrilladas son requisitos esenciales para una buena cosecha. Las labores de
+                                    nivelación y drenaje sirven para evitar la acumulación del agua en el suelo; un
+                                    exceso de humedad puede afectar directamente las plantas o favorecer el desarrollo
+                                    de organismos causantes de pudriciones de la raíz y del tallo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section three-->
+                <section class="py-5 bg-light" id="scroll-target">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0"
+                                    src="src/img/epocaarverja.jpg" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Época de Siembra</h2>
+                                <p class="lead fw-normal text-muted mb-0">La siembra se efectúa tan pronto se inician
+                                    las lluvias; generalmente se realiza en el primer semestre, hacia los meses de marzo
+                                    y abril. Se puede efectuar una segunda siembra en el año, preferencialmente en el
+                                    mes de agosto; sembrando en esta época se evitan algunos daños en el cultivo que se
+                                    pueden presentar por variaciones en las condiciones ambientales o pérdidas
+                                    ocasionadas por heladas, que en esta zona son comunes hacia los meses de diciembre y
+                                    enero.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section four -->
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0"
+                                    src="src/img/fer_arverja.jpg" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Fertilización </h2>
+                                <p class="lead fw-normal text-muted mb-0">El fertilizante se aplica en banda a unos
+                                    centímetros al lado o debajo de la semilla, o se puede mezclar con el suelo antes de
+                                    la siembra; así se evita que la semilla quede en contacto directo con el
+                                    fertilizante.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section five-->
+                <section class="py-5 bg-light" id="scroll-target">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0"
+                                    src="src/img/siembraarverja.jpg" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Distancia en siembra</h2>
+                                <p class="lead fw-normal text-muted mb-0">Las mejores distancias para sembrar variedades
+                                    de crecimiento alto o de enredadera, en cultivo no asociado, son: 60 a 70
+                                    centímetros entre surcos y 5 a 10 centímetros entre plantas. Se necesitan
+                                    aproximadamente 50 a 100 kilogramos de semilla por hectárea, según la distancia de
+                                    siembra que se utilice. Se puede sembrar a mayor o menor distancia entre surcos y
+                                    plantas en cultivos asociados o intercalados..</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Team members section-->
+                <section class="py-5 bg-light">
+                    <div class="container px-5 my-5">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">Fuentes</h2>
+                            <p class="lead fw-normal text-muted mb-5">Aliados informativos oficiales</p>
+                        </div>
+                        <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+
+
+                            <div class="col mb-5 mb-5 mb-sm-0">
+                                <div class="text-center">
+                                    <img class="img-fluid rounded-circle mb-4 px-4" src="src/img/agrosavia.jpg"
+                                        alt="..." />
+                                    <h5 class="fw-bolder">Agrosavia</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="src/js/scripts-cultivos.js"></script>
+    
+    
+    <script src="src/js/sw-register.js"></script>
+    <script src="src/js/offline-status.js"></script>
+    <script src="src/js/buscador-global.js"></script>
+
+    
+</body>
+
+</html>

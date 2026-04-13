@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('../../img/FondoRol.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+}
+
+.navbar {
+  background-color: white;
+  padding: 10px 30px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: rgb(10,108,52);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  transition: transform .3s ease-in-out;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.side-nav a, .logout-btn {
+  display: block;
+  text-decoration: none;
+  color: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background .3s;
+  background: rgba(255,255,255,0.1);
+}
+
+.side-nav a:hover, .logout-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.logout-btn {
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.content {
+  margin-left: 260px;
+  padding: 20px;
+  flex: 1;
+  transition: margin-left .3s;
+}
+
+.view {
+  background: rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+.profile-form input, .profile-form button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.profile-form button {
+  background-color: rgb(10,108,52);
+  color: white;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.profile-form button:hover {
+  background-color: rgb(7,82,40);
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  body.show-sidebar .sidebar {
+    transform: translateX(0);
+  }
+  .content {
+    margin-left: 0;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}

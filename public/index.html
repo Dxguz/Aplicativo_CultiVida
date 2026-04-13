@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web CultiVida</title>
+    <link rel="stylesheet" href="src/css/estilos.css">
+    <link rel="stylesheet" href="src/css/estilos-contactanos.css">
+    <script src="https://kit.fontawesome.com/cceef8c60b.js"
+        integrity="sha384-xAxtF0FnUCT2sVYXWTlPPRxHC45mMusMVZsjf6LHCuXyUf2+GJTVieEH5aoZbyUc"
+        crossorigin="anonymous"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2e7d32">
+
+</head>
+
+<body>
+
+
+
+
+    <header>
+        <nav id="nav" class="nav1">
+            <div class="contenedor-nav">
+                <div class="logo">
+                    <img src="src/img/LogoNoFondo.png" alt="">
+                </div>
+                <div class="enlaces" id="enlaces">
+                    <a href="#" id="enlace_inicio" class="btn-header">Inicio</a>
+                    <a href="#" id="enlace_equipo" class="btn-header">Equipo</a>
+                    <a href="#" id="enlace_servicio" class="btn-header">Servicios</a>
+                    <a href="#" id="enlace_trabajo" class="btn-header">Instructivos</a>
+                    <a href="#" id="enlace_contacto" class="btn-header">Contacto</a>
+                    <a href="#" id="adminLink" class="nav-link">
+                        <i class="fa-solid fa-lock"></i>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="icono" id="open">
+                <span>&#9776;</span>
+
+            </div>
+            </div>
+        </nav>
+        <div class="textos">
+            <h1>CultiVida</h1>
+        </div>
+    </header>
+    <main>
+        <section class="team contenedor" id="equipo">
+            <h3>Nuestro equipo</h3>
+            <p class="after">Conoce a las creadoras</p>
+            <div class="card">
+                <div class="content-card">
+                    <div class="people">
+                        <img src="src/img/PersonaD.png" alt="">
+                    </div>
+                    <div class="texto-team">
+                        <h4>Danna Guzmán</h4>
+                        <p>Programmer</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="people">
+                        <img src="src/img/PersonaM.png" alt="">
+                    </div>
+                    <div class="texto-team">
+                        <h4>María Castro</h4>
+                        <p>Designer</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="about" id="servicio">
+            <div class="contenedor">
+                <h3>Nuestros servicios</h3>
+                <p class="after">Causando impacto en la agricultura</p>
+                <div class="servicios">
+
+                    <div class="caja-servicios">
+                        <img src="src/img/creatividad.png" alt="">
+                        <h4>Info Web</h4>
+                        <a class="caja-servicios" href="info-web.html">Ingresar</a>
+                        <p>Infórmate bien</p>
+                        <p>para mejorar tus cultivos</p>
+                    </div>
+                    <div class="caja-servicios">
+                        <img src="src/img/mujeres.png" alt="">
+                        <h4>Mujeres rurales</h4>
+                        <a class="caja-servicios" href="login-registro-mujeres.html">Ingresar</a>
+                        <p>Empoderamiento digital</p>
+                        <p></p>
+                    </div>
+                    <div class="caja-servicios">
+                        <img src="src/img/agricultura.png" alt="">
+                        <h4>Asesorías</h4>
+                        <a class="caja-servicios" href="login-registro.html">Ingresar</a>
+                        <p>¿Problemas con tu cultivo?</p>
+                        <p>Nuestras asesorías son la solución</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="work contenedor" id="trabajo">
+            <h3>Nuestro proyecto</h3>
+            <p class="after">Hacemos de la tecnología una ayuda para la agricultura</p>
+            <div class="botones-work">
+                <ul>
+                    <li class="filter" data-nombre='todos'>Todos</li>
+                    <li class="filter" data-nombre='region'>Región</li>
+                    <li class="filter" data-nombre='cultivos'>Cultivos</li>
+                    <li class="filter" data-nombre='ingeniero agronomo'>Asesorías</li>
+                </ul>
+            </div>
+            <div class="galeria-work">
+                <div class="cont-work region">
+                    <div class="img-work">
+                        <img src="src/img/region1.png" alt="">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Provincia de Ubaté</h4>
+                    </div>
+                </div>
+                <div class="cont-work region">
+                    <div class="img-work">
+                        <video width="320" height="240" controls>
+                            <source src="src/video/VideoTutorial.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="textos-work">
+                        <h4>Video tutorial</h4>
+                    </div>
+                </div>
+                <a href="https://www.canva.com/design/DAG9eXL7hb4/B_694RmdJPCnGjOMveMSUQ/edit?utm_content=DAG9eXL7hb4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                    class="cont-work region" target="_blank" rel="noopener noreferrer">
+                    <div class="img-work">
+                        <img src="src/img/Manual_Usuario.png" alt="Manual de usuario">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Manual de usuario</h4>
+                    </div>
+                </a>
+                <div class="cont-work cultivos">
+                    <div class="img-work">
+                        <img src="src/img/cultivo1.png" alt="">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Papa</h4>
+                    </div>
+                </div>
+                <div class="cont-work cultivos">
+                    <div class="img-work">
+                        <img src="src/img/cultivo2.png" alt="">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Arveja</h4>
+                    </div>
+                </div>
+                <div class="cont-work cultivos">
+                    <div class="img-work">
+                        <img src="src/img/cultivo3.jpg" alt="">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Maíz</h4>
+                    </div>
+                </div>
+                <div class="cont-work ingeniero agronomo">
+                    <div class="img-work">
+                        <img src="src/img/ing1.png" alt="">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Ingeniero Agrónomo</h4>
+                    </div>
+                </div>
+                <div class="cont-work ingeniero agronomo">
+                    <div class="img-work">
+                        <img src="src/img/ing2.jpg" alt="">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Agricultor</h4>
+                    </div>
+                </div>
+                <div class="cont-work ingeniero agronomo">
+                    <div class="img-work">
+                        <img src="src/img/ing3.jpg" alt="">
+                    </div>
+                    <div class="textos-work">
+                        <h4>Asesorías</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer id="contacto">
+        <!-- Botón agregado -->
+        <div class="btn-footer-contacto">
+            <a href="contactanos.html" class="btn-contacto">Contáctanos</a>
+
+        </div>
+
+        <div class="footer contenedor">
+            <div class="marca-logo">
+                <img src="src/img/LogoNoFondo.png" alt="">
+            </div>
+            <div class="iconos text-center">
+            </div>
+            <p>CultiVida, sembrando y cosechando a tu lado</p>
+
+
+        </div>
+    </footer>
+
+
+    <script src="src/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const adminLink = document.getElementById('adminLink');
+            if (adminLink) {
+                adminLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log("Redirigiendo al login de administrador...");
+                    window.location.href = "admin-login.html";
+                });
+            } else {
+                console.error("No se encontró el botón adminLink en el DOM");
+            }
+        });
+    </script>
+
+    <script src="src/js/sw-register.js"></script>
+    <script src="src/js/offline-status.js"></script>
+
+
+
+</body>
+
+</html>

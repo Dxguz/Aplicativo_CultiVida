@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Enfermedades papa</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-cultivos.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar" aria-label="Buscar..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item">
+                <a class="nav-link" href="Rol.html" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="info-web.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            Espacio Informativo
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Cultivos</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_1" aria-expanded="false" aria-controls="collapsePages_1">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Papa
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_1" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_1">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_1" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_1">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_1" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_1">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-p.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-p.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-p.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-papa-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_2" aria-expanded="false" aria-controls="collapsePages_2">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Maíz
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_2" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_2">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_2" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_2">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_2" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_2">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-m.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-m.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-m.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-maiz-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_3" aria-expanded="false" aria-controls="collapsePages_3">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Arveja
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_3" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_3">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_3" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_3">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_3" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_3">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-a.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-a.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-a.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-arveja-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <div id="layoutSidenav_content">
+            <main>
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bolder">¿Conoces las enfermedades que afectan al cultivo de Arverja ?</h1>
+                            <p class="lead fw-normal text-muted mb-0">Estas enfermedades se ha observado en los
+                                departamentos de Boyacá, Antioquia y Cundinamarca. Aunque no se han cuantificado
+                                pérdidas en el rendimiento de la arveja, el hongo es muy destructivo y afecta también
+                                otros cultivos como fríjol y habichuela.
+                            </p>
+                        </div>
+
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8">
+
+                                <h2 class="fw-bolder mb-3 text-center">Antracnosis</h2>
+                                <h6 class="fw-bolder mb-3 text-center">(Colletotrichum pisi Pat)</h6>
+
+                                <div class="text-center mb-4">
+                                    <img class="img-fluid img-fixed-size" src="src/img/ENF1_ARV.jpg"
+                                        alt="Imagen Tema 1" />
+                                </div>
+
+                                <div class="accordion mb-5" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingOne"><button class="accordion-button"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                                <strong>Características</strong></button></h3>
+                                        <div class="accordion-collapse collapse show" id="collapseOne"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    Es una enfermedad común en zonas productoras de arveja como
+                                                    Cundinamarca, Boyacá, Antioquia y Nariño. Es uno de los patógenos
+                                                    más destructivos, ya que compromete tallos enteros causando la
+                                                    muerte de las plantas en la base. Puede reducir el rendimiento hasta
+                                                    en un 20%.
+                                                    la cosecha.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingTwo"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                <strong>Sintomas</strong></button></h3> </button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseTwo"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>El hongo afecta hojas, tallos y vainas. En las hojas aparecen
+                                                    lesiones irregulares de unos 2 a 8 mm, de color castaño o ladrillo,
+                                                    rodeadas de un halo amarillento. En los tallos, las lesiones se
+                                                    extienden y pueden causar el colapso total de la planta. En las
+                                                    vainas, las manchas son ovaladas, que pasan de amarillas a café
+                                                    oscuro; en infecciones severas, el hongo puede llegar a infectar las
+                                                    semillas</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingThree"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree"><strong>Manejo de la
+                                                    enfermedad </strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseThree"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>
+                                                        <strong>Semillas sanas y certificadas: </strong></button></h3>
+                                                        <p>Evita usar semillas infectadas, ya que el hongo puede
+                                                            transmitirse por ellas
+                                                            Evitar el riego por aspersión en épocas húmedas, porque
+                                                            favorece
+                                                            la dispersión de esporas.
+                                                        </p>
+
+                                                    </li>
+                                                    <strong>Rotacion de cultivo </strong></button></h3>
+                                                    No sembrar arveja ni leguminosas
+                                                    susceptibles (como fríjol o haba) en la misma parcela durante al
+                                                    menos 3 años.
+                                                    <br>
+                                                    <li>
+                                                        <strong>Eliminacion de residuos infectados </strong></button>
+                                                        </h3>
+                                                        Destruir restos de cosecha, ya que el hongo sobrevive en ellos.
+                                                    </li>
+                                                    <br>
+                                                    <li>
+                                                        <strong>Buena ventilación del cultivo</strong></button></h3>
+                                                        Evitar siembras muy densas para reducir la humedad en el
+                                                        follaje.
+                                                        <br>
+                                                    <li>Evitar el riego por aspersión en épocas húmedas, porque favorece
+                                                        la dispersión de esporas.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                                <h2 class="fw-bolder mb-3 text-center">Moho Gris </h2>
+                                <h6 class="fw-bolder mb-3 text-center">(Botrytis fuceliana)</h6>
+
+                                <div class="text-center mb-4">
+                                    <img class="img-fluid img-fixed-size" src="src/img/ENF2-ARV.jfif"
+                                        alt="Imagen Tema 2" />
+                                </div>
+
+                                <div class="accordion mb-5 mb-xl-0" id="accordionExample2">
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingOne_2"><button class="accordion-button"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2"
+                                                aria-expanded="true"
+                                                aria-controls="collapseOne2"><strong>Características</strong>
+                                            </button></h3>
+                                        <div class="accordion-collapse collapse show" id="collapseOne2"
+                                            aria-labelledby="headingOne_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    Es un hongo que afecta principalmente el cultivo de arveja, aunque
+                                                    también puede atacar fríjol, haba y otras leguminosas. Se desarrolla
+                                                    en condiciones frías y húmedas, con temperaturas entre 15 y 17 °C, y
+                                                    se propaga por el viento, el agua o herramientas contaminadas.
+                                                    Sobrevive en restos de cosecha, semillas infectadas y suelos
+                                                    contaminados.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingTwo_2"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo2"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTwo2"><strong>sintomas</strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseTwo2"
+                                            aria-labelledby="headingTwo_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+
+                                                <li>
+                                                    <p> Produce manchas café en hojas que se cubren con un moho gris
+                                                        aterciopelado.</p>
+                                                </li>
+
+                                                <li>
+                                                    <p>Causa marchitez y muerte de flores y botones florales.</p>
+                                                </li>
+
+                                                <li>
+                                                    <p> Genera lesiones hundidas en tallos, afectando el flujo de savia.
+                                                    </p>
+                                                </li>
+
+                                                <li>
+                                                    <p>Provoca pudrición en vainas e infección de semillas, reduciendo
+                                                        su
+                                                        germinación.</p>
+                                                </li>
+
+                                                <li>
+                                                    <p>En infecciones severas, ocasiona caída de flores, secamiento de
+                                                        tallos y disminución del rendimiento del cultivo.</p>
+                                                </li>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingThree_2"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree2"
+                                                aria-expanded="false" aria-controls="collapseThree2"><strong>Manejo de
+                                                    la enfermedad </strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseThree2"
+                                            aria-labelledby="headingThree_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>
+                                                        <p>Usar semillas certificadas y libres de patógenos. </p>
+                                                    </li>
+                                                    <li>
+                                                        <p> Sembrar en suelos bien drenados, evitando el exceso de
+                                                            humedad. </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Mantener distancia entre plantas para mejorar la
+                                                            ventilación.</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Eliminar residuos infectados después de la cosecha. </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p>Realizar rotación de cultivos con especies no susceptibles.
+                                                        </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p>Evitar el riego por aspersión y preferir riego por surcos o
+                                                            goteo. </p>
+                                                    </li>
+
+                                                    <li>
+                                                        <p>Aplicar fungicidas preventivos al detectar los primeros
+                                                            síntomas </p>
+                                                    </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script src="src/js/scripts-cultivos.js"></script>
+     
+        <script src="src/js/offline-status.js"></script>
+        <script src="src/js/buscador-global.js"></script>
+</body>
+
+</html>

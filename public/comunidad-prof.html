@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-p-agri.css" rel="stylesheet" />
+    <link href="src/css/estilos-comunidad-agri-pro.css" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/estado-profesional.css">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body class="sb-nav-fixed" style="display: none;">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Configuración del perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- LUGAR DONDE EDITAR NUEVO CONTENIDO -->
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <div class="sb-sidenav-menu-heading">Profesional agrónomo</div>
+                        <a class="nav-link" href="panel-profesional.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-comments"></i></div>
+                            Chats con Agricultores
+                        </a>
+                        <a class="nav-link" href="eventos-p-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar"></i></div>
+                            Eventos
+                        </a>
+                        <a class="nav-link" href="comunidad-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                            Comunidad
+                        </a>
+
+                        <a class="nav-link" href="info-pagos-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                            Información pagos
+                        </a>
+                        
+                        <a class="nav-link" href="notif-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-bell"></i></i></div>
+                            Notificaciones
+                        </a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="text-center">Bienvenidos: Agricultores y Profesionales</h1>
+                    <p class="text-muted text-center">Comparte tu conocimiento y experiencias</p>
+
+                    <div id="feed" class="feed mt-4">
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
+        <div id="postModal" class="modal-overlay">
+            <div class="modal-card">
+                <h5 id="modalTitle" class="modal-title">Crear Publicación</h5>
+
+                <textarea id="postModalContent" class="modal-textarea" placeholder="¿Qué quieres compartir?"></textarea>
+
+                <div id="previewContainer" class="preview-container"></div>
+
+                <input type="file" id="postModalMedia" class="modal-file" accept="image/*,video/*">
+
+                <div class="modal-actions">
+                    <button id="publishBtn" class="btn-green">Publicar</button>
+                    <button class="btn-cancel" onclick="document.getElementById('postModal').style.display='none'">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="customModal" class="modal-overlay">
+            <div class="modal-card modal-small">
+                <h5 id="modalTitle" class="modal-title">
+                    ¿Estás seguro de realizar esta acción?
+                </h5>
+
+                <textarea id="modalInput" class="modal-textarea" placeholder="Escribe..."></textarea>
+
+                <div class="modal-actions">
+                    <button id="modalConfirmBtn" class="btn-green">Confirmar</button>
+                    <button class="btn-cancel" onclick="document.getElementById('customModal').style.display='none'">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <button id="publishBtn" class="btn-publish" onclick="document.getElementById('postModal').style.display='flex'">
+            ➕
+        </button>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+        <script type="module" src="src/js/notifications-agri-prof.js"></script>
+        <script type="module" src="src/js/scripts-p-prof.js"></script>
+        <script type="module" src="src/js/comunidad-agri-prof.js"></script>
+        <script type="module" src="src/js/navbar-profile.js"></script>
+        <script type="module" src="src/js/auth-guard.js"></script>
+        <script src="src/js/buscador-global.js"></script>
+
+</body>
+
+</html>

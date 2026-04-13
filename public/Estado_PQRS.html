@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado PQRS - CultiVida</title>
+    <link rel="stylesheet" href="src/css/estilos-estadopqrs.css">
+    <script src="https://kit.fontawesome.com/a2d9d5a64d.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="body-estado">
+
+
+    <section class="consulta-pqrs">
+        <h2 class="titulo-centrado">Consulta de Estado PQRS</h2>
+
+
+        <div class="busqueda-container">
+            <input type="text" id="radicado" placeholder="Radicado (ej: PQRS-476891)" />
+
+            <input type="password" id="clave" placeholder="Clave de seguridad" />
+
+            <button id="btnBuscar">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+        </div>
+    </section>
+
+
+    <div id="tabla-container" class="tabla-container" style="display:none;">
+        <h3 class="titulo-centrado"> Historial de PQRS asociadas</h3>
+
+
+        <div class="tabla-responsive">
+            <table id="tablaPQRS">
+                <div class="acciones-filtros">
+                    <button id="btnLimpiarFiltros">Limpiar filtros</button>
+                </div>
+
+                <thead>
+                    <tr>
+                        <th>Radicado</th>
+                        <th>
+                            Fecha <br>
+                            <input type="date" id="filtroFecha">
+                        </th>
+                        <th>Rol</th>
+                        <th>Descripción</th>
+                        <th>
+                            Estado <br>
+                            <select id="filtroEstado">
+                                <option value="">Todos</option>
+                                <option value="Radicada">Radicada</option>
+                                <option value="En proceso">En proceso</option>
+                                <option value="Respondida">Respondida</option>
+                                <option value="Cerrada">Cerrada</option>
+                            </select>
+                        </th>
+                        <th>Respuesta</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="volver">
+        <a href="contactanos.html" class="btn-volver">Volver</a>
+    </div>
+    </section>
+
+</body>
+
+<script type="module" src="src/js/estado-pqrs.js"></script>
+
+</html>

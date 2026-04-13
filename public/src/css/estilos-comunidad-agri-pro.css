@@ -1,0 +1,694 @@
+/* =====================================
+   VARIABLES GLOBALES
+===================================== */
+:root {
+  --primary: #2e7d32;
+  --primary-soft: #e8f5e9;
+  --danger: #d32f2f;
+  --info: #1976d2;
+
+  --gray-100: #f9fafb;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --dark: #1f2937;
+
+  --radius: 12px;
+  --transition: 0.25s ease;
+  --shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+/* =====================================
+   RESET BÁSICO
+===================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--gray-100);
+  color: var(--dark);
+}
+
+/* =====================================
+   COMMUNITY SELECTOR (CARDS)
+===================================== */
+.community-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-300);
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition:
+    box-shadow var(--transition),
+    transform var(--transition),
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.community-card i {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+  transition: transform .25s ease;
+}
+
+.community-card h5 {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0;
+  letter-spacing: -.2px;
+}
+
+.community-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.community-card:hover i {
+  transform: scale(1.08);
+}
+
+.community-card.active {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.community-card.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 6px 6px 0 0;
+}
+
+/* =====================================
+   FEED
+===================================== */
+.feed {
+  max-width: 720px;
+  margin: auto;
+}
+
+/* =====================================
+   POST
+===================================== */
+.post {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.post:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+/* =====================================
+   CABECERA POST
+===================================== */
+.user-avatar {
+  border-radius: 50%;
+  border: 2px solid var(--gray-200);
+  object-fit: cover;
+}
+
+.post strong {
+  color: var(--dark);
+}
+
+.post small {
+  color: var(--gray-500);
+}
+
+/* =====================================
+   CONTENIDO POST
+===================================== */
+.post-text {
+  font-size: .95rem;
+  color: var(--dark);
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  white-space: normal;
+  display: block;
+  margin: 12px 0;
+}
+
+.repost-box {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.post p {
+  font-size: .95rem;
+  color: var(--dark);
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  white-space: normal;
+  display: block;
+}
+
+/* =====================================
+   BOTONES INTERACCIÓN
+===================================== */
+.like-btn {
+  background: transparent;
+  border: none;
+  color: var(--gray-500);
+  transition: var(--transition);
+}
+
+.like-btn:hover {
+  transform: scale(1.05);
+}
+
+.like-btn.active {
+  color: var(--danger);
+}
+
+.post button.btn-sm {
+  border-radius: 999px;
+}
+
+/* =====================================
+   ANIMACIÓN LIKE BURST
+===================================== */
+.like-burst {
+  position: absolute;
+  pointer-events: none;
+}
+
+.like-burst span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--danger);
+  border-radius: 50%;
+  animation: burst 0.6s ease-out forwards;
+}
+
+@keyframes burst {
+  from {
+    transform: translate(0,0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* =====================================
+   COMENTARIOS
+===================================== */
+.comments-thread {
+  background: #f0f8f5;
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-top: 14px;
+  border: 1px solid #27ae60;
+}
+
+.comments-list {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #27ae60 transparent;
+}
+
+.comment-item {
+  background: #f5fdf9;
+  border-left: 4px solid #27ae60;
+  padding: 10px !important;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.comment-header .badge {
+  background: #27ae60 !important;
+  color: white !important;
+}
+
+.comment-text {
+  color: #333;
+  line-height: 1.5;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.replies-list {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-left: 2px solid #d4edda;
+  padding-left: 8px;
+}
+
+.reply-item {
+  background: #e8f6f1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  border-left: 3px solid #27ae60;
+}
+
+.reply-item .badge {
+  background: #27ae60 !important;
+  color: white !important;
+}
+
+.reply-item p {
+  margin-bottom: 0;
+  color: #333;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Botón de respuesta */
+.btn-link {
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.btn-link:hover {
+  background: rgba(46, 125, 50, 0.1);
+  transform: scale(1.05);
+}
+
+.comments-list small {
+  color: var(--dark);
+}
+
+.comments-list .border-bottom {
+  border-color: var(--gray-200) !important;
+}
+
+/* =====================================
+   MENÚ CONTEXTUAL (⋮)
+===================================== */
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+.post-menu {
+  position: absolute;
+  right: 0;
+  top: 32px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e0e0e0;
+  padding: 0;
+  z-index: 100;
+  min-width: 160px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-menu button {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  font-size: .9rem;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-menu button:hover {
+  background: #f5f5f5;
+  padding-left: 18px;
+}
+
+/* =====================================
+   REPOST
+===================================== */
+.repost-box {
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  font-size: .85rem;
+}
+
+/* =====================================
+   BOTÓN PUBLICAR
+===================================== */
+#publishBtn {
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+#publishBtn:hover {
+  transform: scale(1.1);
+}
+
+/* =====================================
+   MODALES
+===================================== */
+#postModal > div,
+#customModal > div {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+#postModal textarea,
+#customModal textarea {
+  resize: none;
+  outline: none;
+}
+
+#postModal textarea:focus,
+#customModal textarea:focus {
+  border-color: var(--primary);
+}
+
+/* =====================================
+   SCROLLBAR (SUAVE)
+===================================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+@media (max-width: 768px) {
+  .community-card {
+    padding: 16px 12px;
+  }
+
+  .community-card i {
+    font-size: 1.6rem;
+  }
+
+  .feed {
+    padding: 0 10px;
+  }
+}
+.btn-publish{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a); /* verdes naturales */
+    color: #fff;
+    font-size: 26px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.btn-publish:hover{
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.6);
+    background: linear-gradient(135deg, #1b5e20, #43a047);
+}
+
+/* Click */
+.btn-publish:active{
+    transform: scale(0.95);
+}
+/* Fondo del modal */
+.modal-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta del modal */
+.modal-card{
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    animation: modalFadeIn 0.3s ease;
+}
+
+/* Título */
+.modal-title{
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2e7d32;
+    text-align: center;
+}
+
+/* Textarea */
+.modal-textarea{
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px solid #c8e6c9;
+    resize: none;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.modal-textarea:focus{
+    border-color: #43a047;
+}
+
+/* Vista previa */
+.preview-container{
+    margin: 12px 0;
+    text-align: center;
+}
+
+/* Input file */
+.modal-file{
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Botones */
+.modal-actions{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-green{
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-green:hover{
+    background: linear-gradient(135deg, #1b5e20, #43a047);
+    transform: scale(1.05);
+}
+
+.btn-cancel{
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-cancel:hover{
+    background: #cfd8dc;
+}
+
+/* Animación */
+@keyframes modalFadeIn{
+    from{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Modal oculto por defecto */
+.modal-overlay{
+    display: none; /* CLAVE: no se abre solo */
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 9999;
+
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tarjeta */
+.modal-card{
+    background: #ffffff;
+    padding: 24px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Título */
+.modal-title{
+    text-align: center;
+    color: #2e7d32;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Textarea */
+.modal-textarea{
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px solid #c8e6c9;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+}
+
+.modal-textarea:focus{
+    border-color: #43a047;
+}
+
+/* Preview */
+.preview-container{
+    margin: 12px 0;
+    text-align: center;
+}
+
+/* Input file */
+.modal-file{
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Botones */
+.modal-actions{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-green{
+    flex: 1;
+    background: linear-gradient(135deg,#2e7d32,#66bb6a);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-green:hover{
+    background: linear-gradient(135deg,#1b5e20,#43a047);
+}
+
+.btn-cancel{
+    flex: 1;
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover{
+    background: #cfd8dc;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.fallback-icon {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 18px;
+}

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Mujeres Rurales</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-p-mujeres.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body class="sb-nav-fixed" style="display: none;">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar..."
+                    aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="completar-perfil.html">Configuración del perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="index.html">Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <div class="sb-sidenav-menu-heading">Mujeres rurales</div>
+                        <a class="nav-link" href="panel-mujeres.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-robot"></i></div>
+                            ChatBot CultiVida
+                        </a>
+
+                        <a class="nav-link" href="cursos-mujeres.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                            Cursos
+                        </a>
+
+                        <a class="nav-link" href="eventos-p-mujeres.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar"></i></div>
+                            Eventos
+                        </a>
+                        <a class="nav-link" href="comunidadmujeres.html">
+                            <div class="sb-nav-link-icon"> <i class="fa-solid fa-thumbs-up"></i></div>
+                            Comunidad
+                        </a>
+
+                        <a class="nav-link" href="notif-mujeres.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-bell"></i></i></div>
+                            Notificaciones
+                        </a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+        <style>
+            #course-detail-view {
+                background-color: #f1f8e9;
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .module-item {
+                background: white;
+                border-left: 5px solid #278f0d;
+                margin-bottom: 10px;
+                padding: 15px;
+                border-radius: 8px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            :root {
+                --primary-green: #2e7d32;
+                --light-green: #4caf50;
+                --accent-green: #e8f5e9;
+                --dark-text: #1b5e20;
+                --bg-color: #f4f7f6;
+                --white: #ffffff;
+                --shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+                --navbar-height: 80px;
+            }
+
+            body {
+                font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                background-color: var(--bg-color);
+                color: #333;
+                margin: 0;
+                line-height: 1.6;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 20px auto;
+                display: flex;
+                justify-content: center;
+            }
+
+
+            .hidden {
+                display: none !important;
+            }
+
+            h2 {
+                color: var(---green);
+                font-weight: 800;
+                margin-bottom: 10px;
+                font-size: 1.8rem;
+            }
+
+            .header-container {
+                background: var(--white);
+                padding: 30px;
+                border-radius: 15px;
+                border-left: 8px solid var(--primary-green);
+                box-shadow: var(--shadow);
+                margin-bottom: 30px;
+            }
+
+            .courses-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+            }
+
+            .course-card {
+                background: #b0e7b5;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #278f0d;
+            }
+
+            .course-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            }
+
+            .course-img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+
+            .course-body {
+                padding: 20px;
+                flex-grow: 1;
+            }
+
+            .course-badge {
+                background: var(--accent-green);
+                color: var(--primary-green);
+                padding: 5px 12px;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: bold;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+
+            .btn-enroll {
+                width: 100%;
+                background: linear-gradient(135deg, var(--primary-green), var(--light-green));
+                color: white;
+                border: none;
+                padding: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: filter 0.2s;
+                border-radius: 0 0 15px 15px;
+                font-size: 1rem;
+            }
+
+            .btn-enroll:hover {
+                filter: brightness(1.1);
+            }
+
+            .btn-enroll:disabled {
+                background: #bdc3c7 !important;
+                cursor: not-allowed;
+            }
+
+            #btn-volver {
+                margin-bottom: 20px;
+                cursor: pointer;
+                background: var(--white);
+                border: 2px solid var(--primary-green);
+                color: var(--primary-green);
+                padding: 10px 22px;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            #btn-volver:hover {
+                background: var(--primary-green);
+                color: var(--white);
+                box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            }
+
+
+            .module-container {
+                background: var(--white);
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: var(--shadow);
+            }
+
+            .module-item {
+                background: #fafafa;
+                border: 1px solid #eee;
+                border-radius: 12px;
+                padding: 18px;
+                margin-bottom: 12px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: transform 0.2s;
+            }
+
+            .module-item:not(.locked):hover {
+                border-color: var(--light-green);
+                background: var(--white);
+            }
+
+            .module-item.locked {
+                background: #f5f5f5;
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            .module-item.locked strong {
+                color: #999;
+            }
+
+            .progress-bar-container {
+                height: 12px;
+                background: #e0e0e0;
+                border-radius: 10px;
+                margin: 20px 0;
+                overflow: hidden;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, var(--primary-green), var(--light-green));
+                width: 0%;
+                transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            #btn-certificado {
+                background: linear-gradient(135deg, #278f0d 0%, #1e6d0a 100%);
+                color: white;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                padding: 15px 30px;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                box-shadow: 0 4px 15px rgba(39, 143, 13, 0.3);
+                transition: all 0.3s ease;
+                margin: 20px auto;
+            }
+
+            #btn-certificado:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(39, 143, 13, 0.4);
+                background: linear-gradient(135deg, #2da50f 0%, #278f0d 100%);
+            }
+
+            #btn-certificado i {
+                font-size: 1.2rem;
+            }
+
+            #btn-certificado.hidden {
+                display: none;
+            }
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            .module-container {
+                max-width: 900px;
+                width: 100%;
+            }
+
+            #layoutSidenav_content {
+                display: flex;
+                justify-content: center;
+            }
+
+            /* ===============================
+   RESPONSIVE PANEL CURSOS
+================================ */
+
+            /* Tablets */
+            @media (max-width: 992px) {
+
+                .container {
+                    margin-left: 0;
+                    width: 100%;
+                    padding: 100px 20px 40px 20px;
+                }
+
+                .courses-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                }
+
+                #course-detail-view {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .module-item {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 10px;
+                }
+
+                #btn-certificado {
+                    width: 100%;
+                }
+            }
+
+            /* Celulares */
+            @media (max-width: 576px) {
+
+                .header-container {
+                    padding: 20px;
+                }
+
+                .course-card {
+                    border-radius: 12px;
+                }
+
+                .course-img {
+                    height: 150px;
+                }
+
+                h2 {
+                    font-size: 1.4rem;
+                }
+
+                #btn-volver,
+                #btn-certificado {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        </style>
+        </head>
+
+
+        <div class="container">
+            <div id="catalog-view">
+                <div class="header-container">
+                    <p></p>
+                    <div class="header-text">
+                        <h2>🌱 Mis Cursos Disponibles</h2>
+                        <p>Aprende y mejora tu producción rural con expertos.</p>
+                    </div>
+                </div>
+                <div id="coursesGrid" class="courses-grid"></div>
+            </div>
+
+            <div id="course-detail-view" class="hidden">
+
+
+                <div class="module-container">
+                    <img id="detail-img" src="" class="course-img" style="border-radius: 10px; margin-bottom: 15px;">
+                    <h2 id="detail-title"></h2>
+                    <p id="detail-desc"></p>
+
+                    <div id="progress-section">
+                        <strong>Progreso General: <span id="progress-text">0%</span></strong>
+                        <div class="progress-bar-container">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div id="modules-list"></div>
+
+                    <hr>
+                    <div id="final-exam-section" class="module-item locked"
+                        style="margin-top: 20px; border: 2px solid var(--primary-green); flex-direction: column;">
+                        <div id="exam-status-area" style="text-align: center;">
+                            <strong>📝 EVALUACIÓN FINAL</strong>
+                            <p style="font-size: 0.8rem; margin: 0;">
+                                Completa la evaluación para obtener tu reconocimiento.
+                            </p>
+                        </div>
+                        <button id="btn-final-exam" class="btn-enroll"
+                            style="width: auto; border-radius: 8px; padding: 10px 20px; margin: 10px auto; display: block;"
+                            disabled>
+                            Iniciar Evaluación Final
+                        </button>
+
+                        <div style="margin-top: 15px; text-align: center;">
+                            <button id="btn-volver" class="btn-volver-curso" onclick="showCatalog()">
+                                <i class="fas fa-arrow-left"></i> Volver
+                            </button>
+                            <button id="btn-certificado" class="hidden btn-ver-reconocimiento"
+                                onclick="mostrarFelicitacionFinalCourseDetail()">
+                                🏆 VER MI RECONOCIMIENTO</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+<script type="module" src="src/js/cursos-mujeres.js"></script>
+<script type="module" src="src/js/navbar-profile.js"></script>
+<script type="module" src="src/js/scripts-p-mujer.js"></script>
+<script type="module" src="src/js/auth-guard.js"></script>
+<script src="src/js/buscador-global.js"></script>
+
+</html>

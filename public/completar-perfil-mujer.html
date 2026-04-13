@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Configurar Perfil</title>
+    <link rel="stylesheet" href="src/css/estilos-completar-perfil.css" />
+</head>
+
+<body>
+
+    <main class="wrap">
+        <div class="card">
+            <header class="card-head">
+                <h1 id="title">Completa tu perfil</h1>
+                <p id="subtitle" class="muted">Llena los siguientes campos para configurar tu cuenta</p>
+            </header>
+
+            <div class="photo-row">
+                <div class="avatar-circle" id="avatarPreview" aria-hidden="true"></div>
+            </div>
+
+            <div id="msg" class="msg"></div>
+
+            <form id="profileForm" class="form" autocomplete="off">
+
+                <!-- OCUPACIÓN -->
+                <div class="row">
+                    <label class="label">Ocupación</label>
+                    <select id="roleSelect" disabled></select>
+                </div>
+
+                <!-- PROFESIONAL: TIPO DE DOCUMENTO -->
+                <div class="row" id="docTypeRow" style="display:none;">
+                    <label class="label">Tipo de documento</label>
+                    <select id="tipoDocumento" required>
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="cedula">Cédula</option>
+                        <option value="pasaporte">Pasaporte</option>
+                        <option value="extranjera">Cédula de extranjería</option>
+                    </select>
+                </div>
+
+                <div class="row" id="numeroDocumentoRow" style="display:none;">
+                    <label class="label">Número de documento</label>
+                    <input id="numeroDocumento" type="text" inputmode="numeric" maxlength="20" pattern="[0-9]{1,20}" />
+                </div>
+
+
+                <!-- PROFESIONAL: DOCUMENTO -->
+                <div class="row" id="docFileRow" style="display:none;">
+                    <label class="label">Documento de identidad (PDF o imagen)</label>
+                    <input id="docFile" type="file" accept=".pdf,image/*" />
+                </div>
+
+                <div class="row" id="docPreviewRow" style="display:none;">
+                    <div id="docPreview" class="file-preview"></div>
+                </div>
+
+                <!-- DATOS PERSONALES -->
+                <div class="row">
+                    <label class="label">Nombres</label>
+                    <input id="firstName" type="text" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                        title="Solo se permiten letras" />
+                </div>
+
+                <div class="row">
+                    <label class="label">Apellidos</label>
+                    <input id="lastName" type="text" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                        title="Solo se permiten letras" />
+                </div>
+
+                <div class="row">
+                    <label class="label">Correo</label>
+                    <input id="emailFixed" type="email" disabled />
+                </div>
+
+                <div class="row">
+                    <label class="label">Teléfono</label>
+                    <input id="telefono" type="tel" required pattern="[0-9]{10}" maxlength="10" 
+                    title="Solo se permiten números" />
+                    
+                </div>
+
+                <!-- MUJER RURAL -->
+                <div class="row" id="paisRow" style="display:none;">
+                    <label class="label">País</label>
+                    <select id="paisSelect">
+                        <option value="" disabled selected>Seleccionar</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Mexico">México, Puebla</option>
+                    </select>
+                </div>
+
+                <!-- AGRICULTOR / MUJER RURAL -->
+                <div class="row" id="municipioRow" style="display:none;">
+                    <label class="label">Municipio</label>
+                    <select id="municipioSelect">
+                        <option value="" disabled selected>Seleccionar</option>
+                    </select>
+                </div>
+
+
+
+                <!-- AGRICULTOR -->
+                <fieldset id="cultivosRow" class="fieldset" style="display:none;">
+                    <legend class="label">Tipo de cultivo (varios)</legend>
+                    <div class="chips">
+                        <label><input type="checkbox" class="cultivo" value="papa"> Papa</label>
+                        <label><input type="checkbox" class="cultivo" value="maiz"> Maíz</label>
+                        <label><input type="checkbox" class="cultivo" value="arveja"> Arveja</label>
+                    </div>
+                </fieldset>
+
+                <!-- PROFESIONAL: INSTITUCIÓN -->
+                <div class="row" id="institucionRow" style="display:none;">
+                    <label class="label">Institución de formación</label>
+                    <input id="institucion" type="text" />
+                </div>
+
+                <!-- PROFESIONAL: TÍTULO -->
+                <div class="row" id="tituloRow" style="display:none;">
+                    <label class="label">Nombre del título profesional</label>
+                    <input id="tituloProfesional" type="text" />
+                </div>
+
+                <!-- PROFESIONAL: SOPORTE TÍTULO -->
+                <div class="row" id="soporteRow" style="display:none;">
+                    <label class="label">Soporte del título (PDF o imagen, max 3MB)</label>
+                    <input id="soporteFile" type="file" accept=".pdf,image/*" />
+                </div>
+
+                <div class="row" id="soportePreviewRow" style="display:none;">
+                    <div id="soportePreview" class="file-preview"></div>
+                </div>
+
+
+                <!-- PROFESIONAL: EXPERIENCIA -->
+                <div class="row" id="experienciaRow" style="display:none;">
+                    <label class="label">Tiempo de experiencia</label>
+                    <div style="display:flex; gap:10px;">
+                        <input id="expCantidad" type="number" min="0" style="width:90px;" />
+                        <select id="expUnidad">
+                            <option value="años">Años</option>
+                            <option value="meses">Meses</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- PROFESIONAL: ESPECIALIDADES -->
+                <div class="row" id="especialidadesRow" style="display:none;">
+                    <label class="label">Áreas de especialidad (opcional)</label>
+                    <input id="especialidades" type="text" placeholder="Ej: suelos, riego, fitosanidad" />
+                </div>
+
+                <!-- PROFESIONAL: MODALIDAD -->
+                <div class="row" id="modalidadRow" style="display:none;">
+                    <label class="label">Modalidad de atención</label>
+                    <div class="chips">
+                        <label>
+                            <input type="checkbox" checked disabled /> Virtual
+                        </label>
+                        <label>
+                            <input type="checkbox" id="presencialCheck" /> Presencial
+                        </label>
+                    </div>
+                </div>
+
+                <!-- DESCRIPCIÓN -->
+                <div class="row wide">
+                    <label class="label">Descripción</label>
+                    <textarea id="descripcion" rows="4" placeholder="Experiencia, cultivos, notas..."></textarea>
+                </div>
+
+                <!-- FOTO -->
+                <div class="row">
+                    <label class="label">Foto de perfil (opcional, max 3MB)</label>
+                    <input id="fotoFile" type="file" accept="image/*" />
+                </div>
+
+                <div class="actions">
+                    <button id="saveBtn" type="submit" class="btn primary">Guardar</button>
+                    <button id="cancelBtn" type="button" class="btn ghost">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="src/js/completar-perfil-mujer.js"></script>
+</body>
+
+</html>

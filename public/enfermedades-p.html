@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Enfermedades papa</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-cultivos.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar" aria-label="Buscar..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item">
+                <a class="nav-link" href="Rol.html" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="info-web.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            Espacio Informativo
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Cultivos</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_1" aria-expanded="false" aria-controls="collapsePages_1">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Papa
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_1" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_1">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_1" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_1">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_1" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_1">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-p.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-p.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-p.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-papa-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_2" aria-expanded="false" aria-controls="collapsePages_2">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Maíz
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_2" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_2">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_2" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_2">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_2" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_2">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-m.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-m.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-m.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-maiz-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_3" aria-expanded="false" aria-controls="collapsePages_3">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Arveja
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_3" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_3">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_3" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_3">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_3" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_3">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-a.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-a.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-a.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-arveja-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <div id="layoutSidenav_content">
+            <main>
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="text-center mb-5">
+                            <h1 class="fw-bolder">¿Conoces las enfermedades que dañan el cultivo de papa?</h1>
+                            <p class="lead fw-normal text-muted mb-0">Acá te contamos las enfermedades más
+                                comunes dentro de la Provincia de Ubaté</p>
+                        </div>
+
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8">
+
+                                <h2 class="fw-bolder mb-3 text-center">Gota, tizón tardío o lancha negra</h2>
+                                <h6 class="fw-bolder mb-3 text-center">(Phytophthora infestans)</h6>
+
+                                <div class="text-center mb-4">
+                                    <img class="img-fluid img-fixed-size" src="src/img/enf-gota-papa.jpg"
+                                        alt="Imagen Tema 1" />
+                                </div>
+
+                                <div class="accordion mb-5" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingOne"><button class="accordion-button"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne">
+                                                <strong>Características</strong></button></h3>
+                                        <div class="accordion-collapse collapse show" id="collapseOne"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>Es la enfermedad más destructiva que afecta a la papa. Este patógeno
+                                                    es
+                                                    capaz de atacar la planta en cualquier etapa de su desarrollo,
+                                                    comprometiendo
+                                                    hojas, tallos y, ocasionalmente, los tubérculos. Su gran peligro
+                                                    radica en la
+                                                    velocidad de dispersión, la cual es particularmente rápida en
+                                                    entornos donde
+                                                    la humedad es alta.</p>
+                                                <p>La proliferación de la Gota se ve impulsada por condiciones
+                                                    ambientales específicas
+                                                    que prevalecen en las zonas paperas andinas: alta humedad relativa
+                                                    junto con
+                                                    temperaturas moderadas, idealmente entre 18° y 22°C durante varias
+                                                    horas.
+                                                    Una vez que el hongo llega al cultivo, el proceso de infección puede
+                                                    iniciarse en
+                                                    tan solo 12 horas, pero los primeros síntomas visibles se
+                                                    manifiestan típicamente
+                                                    después de 5 a 7 días.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingTwo"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                <strong>Síntomas</strong></button></h3> </button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseTwo"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>La infección comienza con la aparición de pequeñas lesiones de color
+                                                    marrón a negro
+                                                    en las hojas, las cuales tienen un aspecto húmedo y se expanden
+                                                    desde los bordes o
+                                                    la punta del folíolo hacia el centro. Frecuentemente, estas manchas
+                                                    están rodeadas
+                                                    por un halo de color amarillo o verde claro. En ambientes con alta
+                                                    humedad, se puede
+                                                    observar un crecimiento blanco y filamentoso en la parte inferior
+                                                    (envés) de las
+                                                    hojas, que es la manifestación de la esporulación del patógeno.
+                                                    Además, los tallos
+                                                    suelen presentar manchas distintivas de color café.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingThree"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree"><strong>Manejo de la
+                                                    enfermedad</strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseThree"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>Utilizar semillas sanas y preferiblemente variedades con cierto
+                                                        grado de tolerancia a la enfermedad.</li>
+                                                    <br>
+                                                    <li>Asegurar la eliminación de residuos de cosechas previas
+                                                        (conocidos
+                                                        como "toyas"), ya que estos pueden albergar el patógeno e
+                                                        iniciar
+                                                        nuevas infecciones.</li>
+                                                    <br>
+                                                    <li>Si se emplea el riego por aspersión, se debe evitar aplicarlo
+                                                        cerca
+                                                        del mediodía para prevenir que la combinación de humedad y alta
+                                                        temperatura favorezca la rápida dispersión de la enfermedad.
+                                                    </li>
+                                                    <br>
+                                                    <li>Al surcar el terreno, es recomendable mantener un espaciamiento
+                                                        entre surcos no menor a un metro para mejorar la aireación y
+                                                        reducir
+                                                        la humedad dentro del dosel del cultivo.</li>
+                                                    <br>
+                                                    <li>Implementar un control químico de forma preventiva, es decir,
+                                                        aplicar fungicidas antes de la aparición masiva de síntomas,
+                                                        especialmente cuando las condiciones climáticas son favorables
+                                                        para
+                                                        el desarrollo de la Gota.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                                <h2 class="fw-bolder mb-3 text-center">Costra negra Rhizoctoniasis de la papa</h2>
+                                <h6 class="fw-bolder mb-3 text-center">(Rhizoctonia solani)</h6>
+
+                                <div class="text-center mb-4">
+                                    <img class="img-fluid img-fixed-size" src="src/img/enf-costra-negra.png"
+                                        alt="Imagen Tema 2" />
+                                </div>
+
+                                <div class="accordion mb-5 mb-xl-0" id="accordionExample2">
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingOne_2"><button class="accordion-button"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2"
+                                                aria-expanded="true"
+                                                aria-controls="collapseOne2"><strong>Características</strong>
+                                            </button></h3>
+                                        <div class="accordion-collapse collapse show" id="collapseOne2"
+                                            aria-labelledby="headingOne_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <p>Esta enfermedad se identifica principalmente por la formación de
+                                                    tubérculos deformes que presentan protuberancias y costras
+                                                    superficiales de color negro, lo que reduce drásticamente su calidad
+                                                    comercial. El hongo prospera óptimamente a una temperatura de
+                                                    18°C, favorecido por un alto nivel de humedad tanto en
+                                                    el suelo como en el ambiente. <br>
+                                                    A nivel de la planta, las lesiones se
+                                                    manifiestan como manchas y chancros de color café-rojizo que atacan
+                                                    los estolones o los brotes del tubérculo-semilla. Estas afectaciones
+                                                    son graves, pues pueden llegar a causar la muerte de los puntos de
+                                                    crecimiento de la papa.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingTwo_2"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo2"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTwo2"><strong>Síntomas</strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseTwo2"
+                                            aria-labelledby="headingTwo_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>Se observan chancros (lesiones hundidas) que causan la
+                                                        deformación y
+                                                        la "decapitación" de los brotes y estolones jóvenes.</li>
+                                                    <br>
+                                                    <li>En la base de las plantas, aparecen manchas oscuras que pueden
+                                                        estar
+                                                        cubiertas por una capa algodonosa de color blanco.</li>
+                                                    <br>
+                                                    <li>Los tubérculos desarrollados presentan costras negras en su
+                                                        superficie.</li>
+                                                    <br>
+                                                    <li>En ocasiones, se produce la formación de tubérculos aéreos
+                                                        (pequeñas
+                                                        papas formadas sobre el tallo).</li>
+                                                    <br>
+                                                    <li>Se evidencia un retraso general en el crecimiento, con el ápice
+                                                        (punta de la planta) entorchado y el tejido leñoso sufriendo
+                                                        necrosis (muerte).</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h3 class="accordion-header" id="headingThree_2"><button
+                                                class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree2"
+                                                aria-expanded="false" aria-controls="collapseThree2"><strong>Manejo de
+                                                    la enfermedad</strong></button></h3>
+                                        <div class="accordion-collapse collapse" id="collapseThree2"
+                                            aria-labelledby="headingThree_2" data-bs-parent="#accordionExample2">
+                                            <div class="accordion-body">
+                                                <ul>
+                                                    <li>Rotar el cultivo, de preferencia con cereales, por un período
+                                                        mínimo de tres años.</li><br>
+                                                    <li>Utilizar semillas sanas certificadas de excelente calidad, las
+                                                        cuales deben ser previamente tratadas con fungicidas.</li><br>
+                                                    <li>Realizar una siembra poco profunda para asegurar una emergencia
+                                                        rápida y minimizar el daño a los brotes nuevos.</li><br>
+                                                    <li>Eliminar los residuos de cosechas anteriores, en particular los
+                                                        tubérculos.</li><br>
+                                                    <li>Aplicar fungicidas en momentos clave: durante el almacenamiento,
+                                                        en la siembra y para la desinfección del suelo en el surco.</li>
+                                                    <br>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script src="src/js/scripts-cultivos.js"></script>
+        
+        <script src="src/js/offline-status.js"></script>
+
+        <script src="src/js/buscador-global.js"></script>
+</body>
+
+</html>

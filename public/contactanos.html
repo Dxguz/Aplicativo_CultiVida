@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos - CultiVida</title>
+    <link rel="stylesheet" href="src/css/estilos.css">
+    <link rel="stylesheet" href="src/css/estilos-contactanos.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
+
+
+</head>
+
+<body class="body-contacto">
+
+    <div class="fondo-dinamico"></div>
+
+    <section class="modulo-contactanos">
+        <section class="pqrs-container">
+
+            <div class="pqrs-header">
+                <div class="decoracion-superior">
+                    <img src="src/img/LogoNoFondo.png" class="img-decorativa">
+                </div>
+
+                <img src="src/img/conta.png" class="imagen-contacto" width="180">
+
+                <h2>PQRS</h2>
+                <h3>
+                    <p> Peticiones, Quejas, Reclamos y Sugerencias
+                </h3>
+            </div>
+
+            <form id="formPQRS" class="form-contacto">
+
+                <label>Nombre completo</label>
+                <input id="nombre" required>
+
+                <label>Correo electrónico</label>
+                <input id="correo" type="email" required>
+
+                <label>Tipo de solicitud</label>
+                <select id="tipoSolicitud" required>
+                    <option value="">Seleccione</option>
+                    <option>Petición</option>
+                    <option>Queja</option>
+                    <option>Reclamo</option>
+                    <option>Solicitud</option>
+                    <option>Felicitación</option>
+                </select>
+
+                <label>Rol</label>
+                <select id="rolUsuario" required>
+                    <option value="">Seleccione</option>
+                    <option>Agricultor</option>
+                    <option>Agrónomo</option>
+                    <option>Mujer Rural</option>
+                    <option>Externo</option>
+                </select>
+
+                <label>Descripción</label>
+                <textarea id="mensaje" required></textarea>
+
+                <button type="submit" class="btn-enviar">Enviar</button>
+
+
+
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <img src="src/img/envio.gif" class="icono-popup">
+
+                        <h3>PQRS enviada correctamente</h3>
+
+                        <p><strong>Número de radicado:</strong></p>
+                        <span id="popupRadicado"></span>
+
+                        <p><strong>Contraseña de consulta:</strong></p>
+                        <span id="popupContrasena"></span>
+
+                        <p class="aviso-popup">
+                            ⚠ Guarda esta contraseña. No se volverá a mostrar.
+                        </p>
+
+                        <button id="cerrarPopup">Cerrar</button>
+                    </div>
+                </div>
+                <div class="estado-pqrs">
+                    <a href="Estado_PQRS.html" class="btn-estado-pqrs">
+                        Consultar estado de mi PQRS
+                    </a>
+                </div>
+
+            </form>
+
+        </section>
+
+
+
+
+        <!-- Contacto directo -->
+        <div class="contacto-directo-wrapper">
+            <h3 class="titulo-contacto">Contacto directo</h3>
+
+            <div class="contacto-directo">
+
+                <a href="mailto:castro@ucundinamarca.edu.co" class="link-contacto">
+                    ✉ cultivida.01@gmail.com
+                </a>
+            </div>
+        </div>
+
+        <!-- Volver -->
+        <div class="volver">
+            <a href="index.html" class="btn-contacto"> Volver al inicio</a>
+        </div>
+
+    </section>
+
+
+</body>
+
+
+<script type="module" src="src/js/pqrs.js"></script>
+
+</html>

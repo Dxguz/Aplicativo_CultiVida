@@ -1,0 +1,393 @@
+/* ===============================
+   VARIABLES Y BASE
+================================ */
+:root {
+    --verde-principal: #2e7d32;
+    --verde-claro: #e8f5e9;
+    --verde-hover: #1b5e20;
+    --verde-gradiente: linear-gradient(135deg, #43a047, #2e7d32);
+    --rojo: #d32f2f;
+    --azul: #1976d2;
+    --gris: #757575;
+    --fondo: #f4f7f6;
+    --blanco: #ffffff;
+    --shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+body {
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: var(--fondo);
+    margin: 0;
+    padding: 20px;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.header-cursos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-cursos h1 {
+    font-size: 1.6rem;
+}
+
+/* ===============================
+   MODAL
+================================ */
+#modalCurso {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* SweetAlert2 - Asegurar que siempre esté encima */
+.swal2-container {
+    z-index: 10001 !important;
+}
+
+.swal2-popup {
+    z-index: 10001 !important;
+}
+
+/* Backdrop de SweetAlert */
+.swal2-shown ~ .swal2-backdrop {
+    z-index: 10000 !important;
+}
+
+/* Modales personalizados - Asegurar z-index alto */
+.modal {
+    z-index: 10000 !important;
+}
+
+.modal.active {
+    z-index: 10000 !important;
+}
+
+.modal-overlay,
+.modal-backdrop {
+    z-index: 9999 !important;
+}
+
+/* COMPATIBLE CON .modal-content y .modal-contenido */
+.modal-content,
+.modal-contenido {
+    background: var(--blanco);
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 750px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* Scroll personalizado */
+.modal-content::-webkit-scrollbar,
+.modal-contenido::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-content::-webkit-scrollbar-thumb,
+.modal-contenido::-webkit-scrollbar-thumb {
+    background: var(--verde-principal);
+    border-radius: 10px;
+}
+
+/* Botón cerrar */
+.cerrar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--gris);
+}
+.cerrar-modal:hover {
+    color: var(--rojo);
+}
+
+/* ===============================
+   FORMULARIO
+================================ */
+.grupo-form {
+    margin-bottom: 20px;
+}
+
+.grupo-form label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--verde-hover);
+}
+
+.grupo-form input,
+.grupo-form textarea,
+.grupo-form select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.grupo-form input:focus,
+.grupo-form textarea:focus,
+.grupo-form select:focus {
+    border-color: var(--verde-principal);
+    outline: none;
+    background: #f9fff9;
+}
+
+/* ===============================
+   BOTONES
+================================ */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-crear {
+    background: var(--verde-gradiente);
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+
+/* Agregar módulo */
+#btnAgregarModulo {
+    background: var(--verde-claro);
+    color: var(--verde-principal);
+    border: 2px dashed var(--verde-principal);
+    padding: 15px;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+#btnAgregarModulo:hover {
+    background: var(--verde-principal);
+    color: white;
+}
+
+/* Guardar curso */
+button[type="submit"] {
+    background: var(--verde-gradiente);
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+
+/* Botones pequeños */
+.btn-agregar-pregunta {
+    background: white;
+    color: var(--verde-principal);
+    border: 2px solid var(--verde-principal);
+    padding: 8px 15px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+.btn-agregar-pregunta:hover {
+    background: var(--verde-claro);
+}
+
+.btn-eliminar-modulo,
+.btn-eliminar-pregunta {
+    background: #ffebee;
+    color: var(--rojo);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+}
+.btn-eliminar-modulo:hover {
+    background: var(--rojo);
+    color: white;
+}
+
+/* ===============================
+   MODULOS Y EVALUACIONES
+================================ */
+.modulo-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-left: 6px solid var(--verde-principal);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.modulo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.final-card {
+    border-left-color: #fbc02d;
+    background: #fffdf7;
+}
+
+/* ===============================
+   PREGUNTAS
+================================ */
+.pregunta-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 15px 0;
+    border: 1px dashed #ccc;
+}
+
+.pregunta-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pregunta-header input {
+    flex: 1;
+    font-weight: bold;
+}
+
+.opcion-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.opcion-item input[type="text"] {
+    flex: 1;
+    border: 1px solid #ddd;
+}
+
+/* ===============================
+   MOSAICO DE CURSOS
+================================ */
+#mosaicoCursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card-curso {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.card-curso:hover {
+    transform: translateY(-5px);
+}
+
+.card-curso img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 15px;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-editar {
+    flex: 1;
+    background: var(--azul);
+    color: white;
+    padding: 8px;
+}
+
+.btn-eliminar {
+    flex: 1;
+    background: #fdeaea;
+    color: var(--rojo);
+    padding: 8px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .modal-content,
+    .modal-contenido {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .header-cursos h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+
+    .btn-crear {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content,
+    .modal-contenido {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .grupo-form label {
+        font-size: 0.9rem;
+    }
+
+    .grupo-form input,
+    .grupo-form textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #btnAgregarModulo,
+    button[type="submit"] {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    .modulo-header,
+    .pregunta-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Panel de administración Cultivida" />
+    <meta name="author" content="Cultivida" />
+    <title>Panel Admin</title>
+    <link rel="stylesheet" href="src/css/estilos-pqrs-admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-p-admin.css" rel="stylesheet" />
+    <link href="src/css/estilos-pqrs-admin.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed" style="display: none;">
+    <!-- Navbar superior -->
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Buscar..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" id="navbarDropdown"
+                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    <img id="navAdminPhoto" class="admin-avatar" alt="Avatar admin" />
+
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a id="btnProfileConfig" class="dropdown-item" href="admin-panel.html">Configuración del
+                            perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a id="btnLogout" class="dropdown-item" href="#">Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div id="layoutSidenav">
+        <!-- Sidebar -->
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Opciones</div>
+
+                        <a class="nav-link" href="eventos-admin.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar"></i></div>
+                            Añadir eventos
+                        </a>
+
+                        <a class="nav-link" href="control-comunidad-admin.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-comment-dots"></i></div>
+                            Control comunidad
+                        </a>
+
+                        <a class="nav-link" href="crear-curso-mujeres-admin.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-person-dress"></i></div>
+                            Crear cursos mujeres
+                        </a>
+
+                        <a class="nav-link" href="aprobacion-profesionales.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                            Aprobación profesionales
+                        </a>
+
+                        <a class="nav-link" href="pqrs-admin.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-list-check"></i></div>
+                            Recepción PQRS
+                        </a>
+                        <a class="nav-link" href="reportes-msg-admin.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+                            Reportes mensajería
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+        <!-- Contenido principal -->
+        <div id="layoutSidenav_content">
+            <main class="container-admin">
+                <h2 class="titulo-admin">Recepción y Gestión de PQRS</h2>
+                <div class="tabla-responsive">
+                    <table id="tablaPQRSAdmin">
+                        <thead>
+                            <tr>
+                                <th>Radicado</th>
+                                <th>Fecha</th>
+                                <th> Rol <br> <select id="filtroRol">
+                                        <option value="">Todos</option>
+                                        <option value="Agrónomo">Agrónomo</option>
+                                        <option value="Agricultor">Agricultor</option>
+                                        <option value="Mujer Rural">Mujer Rural</option>
+                                        <option value="Externo">Externo</option>
+                                    </select> </th>
+                                <th> Estado <br> <select id="filtroEstado">
+                                        <option value="">Todos</option>
+                                        <option value="Radicada">Radicada</option>
+                                        <option value="En proceso">En proceso</option>
+                                        <option value="Respondida">Respondida</option>
+                                        <option value="Cerrada">Cerrada</option>
+                                    </select> </th>
+                                <th>Tipo</th>
+                                <th>Descripción</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+
+    </div>
+    <!-- Modal flotante para gestionar PQRS -->
+    <div id="modalGestion" class="modal-gestion">
+        <div class="modal-content">
+            <span id="cerrarModal" class="cerrar-modal">&times;</span>
+            <h3>Gestionar PQRS</h3>
+            <div id="contenidoGestion"></div>
+        </div>
+    </div>
+    <div id="modalNotificacion" class="modal">
+        <div class="modal-contenido">
+            <p>🔔 Notificación enviada</p>
+            <button id="btnCerrarNotificacion">Aceptar</button>
+        </div>
+    </div>
+    <div id="modalExito" class="modal">
+        <div class="modal-contenido">
+            <p>✅ PQRS actualizada correctamente</p>
+            <button id="btnCerrarExito">Aceptar</button>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+
+
+        const EMAILJS_PUBLIC_KEY = "LHm6I1BhnLkM4IeGA";
+        const EMAILJS_SERVICE_ID = "service_bwjw9us";
+        const EMAILJS_TEMPLATE_ID = "service_bwjw9us";
+
+        if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+            console.log("✅ EmailJS inicializado correctamente");
+        } else {
+            console.warn("⚠️ EmailJS no configurado. Reemplaza las credenciales en pqrs-admin.html");
+        }
+
+        window.EMAILJS_CONFIG = {
+            PUBLIC_KEY: EMAILJS_PUBLIC_KEY,
+            SERVICE_ID: EMAILJS_SERVICE_ID,
+            TEMPLATE_ID: EMAILJS_TEMPLATE_ID,
+            isConfigured: EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY"
+        };
+    </script>
+    <script type="module" src="src/js/pqrs-admin.js"></script>
+    <script type="module" src="src/js/admin-panel.js"></script>
+    <script type="module" src="src/js/admin-avatar.js"></script>
+    <script type="module" src="src/js/auth-guard.js"></script>
+    <script type="module" src="src/js/admin-logout.js"></script>
+    
+
+</body>
+
+
+
+</html>

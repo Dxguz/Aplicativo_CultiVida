@@ -1,0 +1,595 @@
+/* ===== Botón dentro del footer ===== */
+.btn-footer-contacto {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-contacto {
+  background-color: #0a6c34; /* verde natural */
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgb(255, 253, 253);
+}
+
+/* -------------------------------------------------------------------- */
+
+/* ===== Estilos generales ===== */
+body-contacto {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #f0f8f3 0%, #ffffff 100%);
+  overflow-x: hidden;
+}
+
+.modulo-contactanos {
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.modulo-contactanos h2 {
+  color: #0a6c34;
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.modulo-contactanos p {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 17px;
+}
+
+/* ===== Formulario ===== */
+.form-contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(10, 108, 52, 0.2);
+  padding: 40px 25px;
+  width: 85%;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.form-contacto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(10, 108, 52, 0.3);
+}
+
+.form-contacto label {
+  font-weight: bold;
+  color: #0a6c34;
+  width: 100%;
+  text-align: left;
+  max-width: 500px;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border: 2px solid #0a6c34;
+  border-radius: 12px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus {
+  box-shadow: 0 0 8px #0a6c34;
+  transform: scale(1.02);
+}
+
+/* ===== Radicación ===== */
+.radicacion {
+  background-color: #e9f5ec;
+  padding: 10px 25px;
+  border-radius: 20px;
+  color: #0a6c34;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* ===== Botón Enviar ===== */
+.btn-enviar {
+  background-color: #0a6c34;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(10, 108, 52, 0.4);
+}
+
+.btn-enviar:hover {
+  background-color: #087a3d;
+  transform: scale(1.05);
+}
+
+/* ===== Botón volver ===== */
+.btn-contacto {
+  background-color: #0a6c34;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-contacto:hover {
+  background-color: #087a3d;
+  transform: scale(1.05);
+}
+
+/* ===== Información de contacto ===== */
+.info-contacto {
+  margin-top: 40px;
+  color: #333;
+  animation: slideUp 1s ease-in-out;
+}
+
+.info-contacto h3 {
+  color: #0a6c34;
+  margin-bottom: 15px;
+}
+
+.info-contacto i {
+  color: #0a6c34;
+  margin-right: 8px;
+}
+
+.redes i {
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.redes i:hover {
+  transform: scale(1.3);
+  color: #087a3d;
+}
+
+/* ===== Ventana emergente ===== */
+.popup {
+  position: fixed;
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.5s ease;
+}
+
+.popup.show {
+  display: flex;
+  content: center;
+}
+
+.popup-content {
+  background: #fff;
+  content: center;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(10, 108, 52, 0.3);
+  animation: zoomIn 0.5s ease;
+}
+
+.popup-content h3 {
+
+  color: #0a6c34;
+  margin-bottom: 10px;
+  content: center;
+}
+
+.popup-content #popupNumero {
+    
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  color: #087a3d;
+  margin-top: 10px;
+}
+
+.popup-content button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: #0a6c34;
+  border: none;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup-content button:hover {
+  background: #087a3d;
+  transform: scale(1.05);
+}
+
+/* Estilos para radicado y contraseña en el popup */
+#popupRadicado, #popupContrasena {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #087a3d;
+  margin: 12px 0;
+  padding: 12px;
+  background: #f0f8f4;
+  border-radius: 8px;
+  border-left: 4px solid #0a6c34;
+  word-break: break-all;
+}
+
+.aviso-popup {
+  color: #ff6b35;
+  font-size: 14px;
+  margin: 15px 0 10px;
+  font-weight: 600;
+}
+
+/* ===== Animaciones ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.btn-volver {
+  min-width: 230px;
+  text-align: center;
+  background-color: #0a6c34;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(10, 108, 52, 0.4);
+}
+
+.btn-volver:hover {
+  background-color: #087a3d;
+  transform: scale(1.05);
+}
+
+/* ===== Decoraciones visuales ===== */
+.decoracion-superior {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.img-decorativa {
+  width: 180px;
+  height: 90px;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 10px rgba(10, 108, 52, 0.5))
+          drop-shadow(0 0 20px rgba(34, 197, 94, 0.4));
+  animation: brilloSuave 3s infinite ease-in-out;
+}
+
+/* ===== Icono del popup ===== */
+.icono-popup {
+  width: 70px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 8px rgba(10, 108, 52, 0.4));
+  animation: pulsoBrillante 2.5s infinite ease-in-out;
+}
+
+/* ===== Animaciones de brillo ===== */
+@keyframes brilloSuave {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.3))
+            drop-shadow(0 0 12px rgba(10, 108, 52, 0.4));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(34, 197, 94, 0.7))
+            drop-shadow(0 0 24px rgba(10, 108, 52, 0.5));
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulsoBrillante {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(10, 108, 52, 0.5));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 18px rgba(34, 197, 94, 0.7));
+  }
+}
+
+/* ===== Fondo dinámico verde exterior ===== */
+.fondo-dinamico {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(120deg, #4fe77f, #6dcf8b, #a8eb12);
+  background-size: 300% 300%;
+  z-index: -2;
+  animation: movimientoFondo 10s ease infinite;
+  filter: brightness(0.95);
+}
+
+@keyframes movimientoFondo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.img-decorativa {
+  max-width: 500px;
+  filter: drop-shadow(0 0 6px rgba(17, 241, 9, 0.4));
+}
+
+/* ===== Módulo principal ===== */
+.modulo-contactanos {
+  position: relative;
+  margin: 70px auto;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 15px;
+  padding: 35px 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  width: 90%;
+  max-width: 700px;
+  color: #333;
+  text-align: center;
+}
+
+/* ===== Títulos ===== */
+.modulo-contactanos h2 {
+  color: #0a6c34;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* ===== Texto descriptivo ===== */
+.modulo-contactanos p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* ===== Formulario ===== */
+.form-contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+select, input, textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  border: 2px solid #0a6c34;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #f9f9f9;
+  transition: 0.3s;
+}
+
+select:focus, input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px #0a6c34;
+}
+
+/* ===== Botones generales ===== */
+.btn-enviar, .btn-volver, .link-contacto {
+  min-width: 120px;
+  text-align: center;
+  background-color: #0a6c34;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-enviar:hover, .btn-volver:hover, .link-contacto:hover {
+  background-color: #087a3d;
+  transform: scale(1.05);
+}
+
+
+/* ===== CONTENEDOR DE CONTACTO DIRECTO ===== */
+/* ===== CONTENEDOR GENERAL ===== */
+.contacto-directo-wrapper {
+  margin: 40px auto 25px;
+  text-align: center;
+}
+
+/* ===== TÍTULO ===== */
+.titulo-contacto {
+  margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2e2e2e;
+}
+
+/* ===== BOTONES EN FILA ===== */
+.contacto-directo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ===== BOTONES ===== */
+.link-contacto {
+  min-width: 260px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background-color: #0a6c34;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 16px rgba(10,108,52,0.35);
+  transition: all 0.3s ease;
+}
+
+.link-contacto:hover {
+  background-color: #087a3d;
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* ===== BOTÓN VOLVER ===== */
+.volver {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .contacto-directo {
+    flex-direction: column;
+  }
+
+  .link-contacto {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+
+
+
+/* ===== Animación general ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.imagen-contacto {
+  display: block;      /* convierte la imagen en bloque para poder centrarla */
+  margin: 0 auto;      /* centra horizontalmente */
+}
+
+
+
+
+/* ========== SECCIÓN ESTADO PQRS ========== */
+
+.btn-estado-pqrs {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 34px;
+  background: linear-gradient(135deg, #0a6c34, #1fa45b);
+  color: #ffffff;
+  text-decoration: none;
+
+  border-radius: 999px; /* ultra redondo */
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  box-shadow: 
+    0 10px 24px rgba(31, 126, 72, 0.35);
+
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.4s ease;
+}
+
+/* Hover MUY visible */
+.btn-estado-pqrs:hover {
+  transform: translateY(-5px) scale(1.06);
+  background: linear-gradient(135deg, #1fa45b, #0a6c34);
+  box-shadow: 
+    0 18px 38px rgba(10, 108, 52, 0.55);
+}
+
+/* Click */
+.btn-estado-pqrs:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 
+    0 10px 20px rgba(10, 108, 52, 0.4);
+}
+
+
+
+
+.estado-pqrs {
+  position: relative;
+  margin: 35px auto 45px;
+  max-width: 520px;
+  padding: 25px 20px;
+  border-radius: 26px;
+  background: linear-gradient(
+    135deg,
+    rgba(10,108,52,0.12),
+    rgba(34,197,94,0.18)
+  );
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 15px 35px rgba(10,108,52,0.25),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+  text-align: center;
+  animation: aparecerSuave 1s ease;
+}
+
+/* Texto de apoyo */
+.estado-pqrs::before {
+  content: "¿Ya enviaste una PQRS?";
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0a6c34;
+  letter-spacing: 0.3px;
+}
+
+
+

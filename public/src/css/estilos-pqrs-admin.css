@@ -1,0 +1,480 @@
+.btn-notificar {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  color: #333;
+}
+
+.btn-notificar i {
+  font-size: 14px;
+}
+/* Contenedor principal */
+.container-admin {
+  padding: 20px;
+}
+
+.titulo-admin {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #0b6e0e;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Tabla */
+.tabla-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+  background: #fafafa;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: linear-gradient(90deg, #0b6e0e, #145214);
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Selects y textareas */
+select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+select:focus, textarea:focus {
+  border-color: #0b6e0e;
+  box-shadow: 0 0 6px rgba(11,110,14,0.4);
+}
+
+/* 🎨 Estados con colores e íconos */
+.estado-radicada {
+  background: linear-gradient(90deg,  #fbc02d);
+  color: #333;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.estado-proceso {
+  background: linear-gradient(90deg,  #0288d1);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.estado-respondida {
+  background: linear-gradient(90deg, #2e7d32);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.estado-cerrada {
+  background: linear-gradient(90deg,  #bb1212);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 🎨 Roles con colores */
+.rol-agricultor {
+  color: #1e552a;
+  font-weight: bold;
+  background: rgba(38, 150, 42, 0.15);
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rol-agronomo {
+  color: #1565c0;
+  font-weight: bold;
+  background: rgba(33,150,243,0.15);
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rol-mujer {
+  color: #c2185b;
+  font-weight: bold;
+  background: rgba(233,30,99,0.15);
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rol-externo {
+  color: #616161;
+  font-weight: bold;
+  background: rgba(158,158,158,0.15);
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 🛠️ Botón Gestionar */
+.btn-gestionar {
+  background: #0b6e0e;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-gestionar i {
+  margin-right: 6px;
+}
+
+.btn-gestionar:hover {
+  background: #145214;
+  transform: scale(1.05);
+}
+
+/* 💾 Botón Guardar */
+.btn-guardar {
+  background: #104b10;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-guardar i {
+  margin-right: 6px;
+}
+
+.btn-guardar:hover {
+  background: #0e6b35;
+  transform: scale(1.05);
+}
+
+/* 📋 Formulario de gestión */
+.gestion-form {
+  background: #f1f8e9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+.gestion-form h4 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.gestion-form p {
+  margin: 4px 0;
+  font-size: 0.95em;
+  color: #444;
+}
+
+.gestion-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.respuesta-input {
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    font-size: 0.85em;
+  }
+
+  .btn-gestionar, .btn-guardar {
+    font-size: 0.85em;
+    padding: 5px 10px;
+  }
+
+  .gestion-form {
+    padding: 10px;
+  }
+}
+
+/* Modal flotante */
+.modal-gestion {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.cerrar-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cerrar-modal:hover {
+  color: #000;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #0b6e0e;
+  font-weight: 700;
+}
+
+
+.modal-content h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.modal-content p {
+  margin: 5px 0;
+  font-size: 0.95em;
+}
+
+#estadoSelect, #respuestaInput {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+#estadoSelect {
+  accent-color: #2e7d32; /
+}
+
+#btnGuardar {
+  background: #1d6114;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+#btnGuardar i {
+  margin-right: 6px;
+}
+
+#btnGuardar:hover {
+  background: #0f9b22;
+  transform: scale(1.05);
+}
+
+/* Contenedor de botones en modal */
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/* ===========================
+   BOTONES DE ACCIÓN
+=========================== */
+#btnGuardar,
+#btnEnviarNotificacion {
+  flex: 1;
+  min-width: 150px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  font-weight: 700;
+  font-size: 0.9em;
+  color: #fff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  background-color: #1d6114;
+  transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+#btnGuardar:hover,
+#btnEnviarNotificacion:hover {
+  background-color: #237a19;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(29, 97, 20, 0.35);
+}
+
+/* Active (click) */
+#btnGuardar:active,
+#btnEnviarNotificacion:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) inset;
+}
+
+/* Focus accesible */
+#btnGuardar:focus-visible,
+#btnEnviarNotificacion:focus-visible {
+  outline: 2px solid #9be28f;
+  outline-offset: 2px;
+}
+
+/* Iconos */
+#btnEnviarNotificacion i {
+  margin-right: 4px;
+  font-size: 0.95em;
+}
+
+
+.titulo-admin .btn.btn-secondary {
+  background-color: #278533;   /* rojo */
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.titulo-admin {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.titulo-admin .btn.btn-secondary {
+  margin-left: auto; 
+}
+
+
+/* Animación */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-contenido {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  margin: 15% auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-contenido button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  border: none;
+  background: #278d46;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-contenido button:hover {
+  background: #3d7550;
+}
+#btnCerrarNotificacion {
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.35);
+  cursor: pointer;
+}
+
+#btnCerrarNotificacion:hover {
+  filter: brightness(1.05);
+}

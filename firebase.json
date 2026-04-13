@@ -1,0 +1,33 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://www.gstatic.com https://kit.fontawesome.com https://www.googleapis.com; script-src-elem 'self' https://cdn.jsdelivr.net https://www.gstatic.com https://kit.fontawesome.com https://www.googleapis.com; style-src 'self' https://fonts.googleapis.com https://ka-f.fontawesome.com 'unsafe-inline'; style-src-elem 'self' https://fonts.googleapis.com https://ka-f.fontawesome.com 'unsafe-inline'; img-src 'self' data: https://res.cloudinary.com https://firebasestorage.googleapis.com; connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com; font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=63072000; includeSubDomains; preload"
+          }
+        ]
+      }
+    ]
+  }
+}

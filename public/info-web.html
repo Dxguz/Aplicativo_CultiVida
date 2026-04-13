@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Info Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-info-web.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="manifest" href="manifest.json">
+    <link href="src/js/info_web.js" />
+    <meta name="theme-color" content="#2e7d32">
+</head>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const track = document.querySelector('.video-mosaico');
+        const wrapper = document.querySelector('.video-mosaico-wrapper');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        const modal = document.getElementById("videoModal");
+        const modalVideo = document.getElementById("modalVideo");
+        const closeBtn = document.querySelector(".close-video");
+
+        let currentIndex = 0;
+        let autoSlide;
+
+        /* ===============================
+        UTILIDADES
+        ================================ */
+        function getVisibleItems() {
+            return Array.from(document.querySelectorAll('.video-item'))
+                .filter(item => item.style.display !== 'none');
+        }
+
+        function getItemsPerView() {
+            const items = getVisibleItems();
+            if (!items.length) return 1;
+            return Math.floor(wrapper.offsetWidth / items[0].offsetWidth) || 1;
+        }
+
+
+        /* ===============================
+        SLIDE
+        ================================ */
+        function goToSlide(index) {
+            const items = getVisibleItems();
+            const itemsPerView = getItemsPerView();
+            const maxIndex = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
+
+            currentIndex = Math.min(Math.max(index, 0), maxIndex);
+
+            const offset =
+                currentIndex * itemsPerView * (items[0].offsetWidth + 20);
+
+            track.style.transform = `translateX(-${offset}px)`;
+            updateDots();
+        }
+
+        /* ===============================
+        AUTO SLIDE
+        ================================ */
+        function startAutoSlide() {
+            stopAutoSlide();
+            autoSlide = setInterval(() => {
+                const items = getVisibleItems();
+                const itemsPerView = getItemsPerView();
+                const maxIndex = Math.max(0, Math.ceil(items.length / itemsPerView) - 1);
+
+                currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+                goToSlide(currentIndex);
+            }, 4000);
+        }
+
+        function stopAutoSlide() {
+            if (autoSlide) clearInterval(autoSlide);
+        }
+
+        /* ===============================
+        FILTRO DE VIDEOS
+        ================================ */
+        window.filtrarVideos = function (cultivo) {
+            const items = document.querySelectorAll('.video-item');
+
+            items.forEach(item => {
+                item.style.display =
+                    cultivo === 'todos' || item.dataset.cultivo === cultivo
+                        ? 'block'
+                        : 'none';
+            });
+
+            currentIndex = 0;
+            track.style.transform = 'translateX(0)';
+            createDots();
+            startAutoSlide();
+        };
+
+        /* ===============================
+        MODAL VIDEO
+        ================================ */
+        document.querySelectorAll(".video-item").forEach(item => {
+            item.addEventListener("click", () => {
+                modalVideo.src = item.dataset.video;
+                modal.style.display = "flex";
+                modalVideo.load();
+                modalVideo.play();
+            });
+        });
+
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", e => e.target === modal && closeModal());
+
+        function closeModal() {
+            modalVideo.pause();
+            modalVideo.src = "";
+            modal.style.display = "none";
+        }
+
+        /* ===============================
+        EVENTOS
+        ================================ */
+        wrapper.addEventListener('mouseenter', stopAutoSlide);
+        wrapper.addEventListener('mouseleave', startAutoSlide);
+
+        window.addEventListener('resize', () => {
+            currentIndex = 0;
+            createDots();
+            goToSlide(0);
+        });
+
+        /* ===============================
+        INIT
+        ================================ */
+        createDots();
+        startAutoSlide();
+    });
+</script>
+
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item">
+                <a class="nav-link" href="Rol.html" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="info-web.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            Espacio Informativo
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Cultivos</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_1" aria-expanded="false" aria-controls="collapsePages_1">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Papa
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_1" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_1">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_1" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_1">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_1" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_1">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-p.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-p.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-p.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-papa-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_2" aria-expanded="false" aria-controls="collapsePages_2">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Maíz
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_2" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_2">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_2" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_2">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_2" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_2">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-m.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-m.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-m.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-maiz-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_3" aria-expanded="false" aria-controls="collapsePages_3">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Arveja
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_3" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_3">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_3" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_3">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i>
+                                    </div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_3" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_3">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-a.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-a.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-a.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-arveja-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4 text-center">Provincia de Ubaté</h1>
+                    <div class="text-center mb-4">
+                        <video class="video-full-ancho" autoplay muted loop playsinline>
+                            <source src="src/video/Video_info.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+
+                <ol class="breadcrumb mb-4 tex">
+                    <li class="breadcrumb-item active text-center"><br></li>
+                </ol>
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-warning text-white mb-4 card-altura-fija">
+                            <div class="card-body">La Provincia </div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#"></a>
+                                <p>La Provincia de Ubaté, al norte de Cundinamarca, es una importante zona
+                                    agropecuaria del altiplano cundiboyacense, con una economía basada en la
+                                    ganadería lechera, la agricultura y la minería,</p>
+                                <div class="small text-white"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary text-white mb-4 card-altura-fija">
+                            <div class="card-body">Municipios</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#"></a>
+                                <p>La Provincia de Ubaté, esta conformada por diez municipios: Ubaté,
+                                    Cucunubá, Fúquene, Guachetá, Lenguazaque, Carmen de Carupa, Simijaca, Susa,
+                                    Sutatausa y Tausa</p>
+                                <div class="small text-white"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-success text-white mb-4 card-altura-fija">
+                            <div class="card-body">Cultivos Representativos</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#"></a>
+                                🥔 Papa <br> 🌾Maiz <br> 🌱Arverja <br>
+                                <div class="small text-white"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-danger text-white mb-4 card-altura-fija">
+                            <div class="card-body">Área</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="#"></a>
+                                <p>La Provincia de Ubaté tiene cerca de 25.000 hectáreas agrícolas, que
+                                    representan
+                                    alrededor del 18 % de su territorio</p>
+                                <div class="small text-white"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mosaico de videos -->
+                <div class="col-xl-12">
+                    <div class="card bg-primary text-white mb-4 video-card">
+                        <div class="card-body">
+
+                            <h5 class="mb-3 text-center">
+                                🔍 Descubre más sobre los Cultivos de la provincia de Ubaté
+                            </h5>
+
+                            <!-- BOTONES DE FILTRO -->
+                            <div class="text-center mb-4">
+                                <button class="btn btn-light mx-1" onclick="filtrarVideos('todos')">🌱
+                                    Todos</button>
+                                <button class="btn btn-light mx-1" onclick="filtrarVideos('papa')">🥔
+                                    Papa</button>
+                                <button class="btn btn-light mx-1" onclick="filtrarVideos('maiz')">🌽
+                                    Maíz</button>
+                                <button class="btn btn-light mx-1" onclick="filtrarVideos('arveja')">🌿
+                                    Arveja</button>
+                            </div>
+
+                            <!-- MOSAICO DE VIDEOS -->
+                            <div class="video-carousel-container">
+                                <!--  <button class="carousel-btn left" onclick="moveCarousel(-1)">❮</button>-->
+
+                                <div class="video-mosaico-wrapper">
+                                    <div class="video-mosaico">
+
+                                        <!-- ================= PAPA ================= -->
+                                        <div class="video-item" data-cultivo="papa"
+                                            data-video="src/video/El_Oro_de_Ubaté.mp4">
+                                            <video muted>
+                                                <source src="src/video/El_Oro_de_Ubaté.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">El oro de Ubaté</div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="papa"
+                                            data-video="src/video/Plagas_Papa_Ubaté.mp4">
+                                            <video muted>
+                                                <source src="src/video/Plagas_Papa_Ubaté.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Plagas comunes en cultivos de papa
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="papa"
+                                            data-video="src/video/Papas_de_Ubaté.mp4">
+                                            <video muted>
+                                                <source src="src/video/Papas_de_Ubaté.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Tipos de papa en la provincia de Ubaté
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="papa"
+                                            data-video="src/video/Papa_de_Ubaté.mp4">
+                                            <video muted>
+                                                <source src="src/video/Papa_de_Ubaté.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Datos curiosos de la papa en la provincia de Ubaté
+                                            </div>
+                                        </div>
+
+                                        <!-- ================= ARVEJA ================= -->
+                                        <div class="video-item" data-cultivo="arveja"
+                                            data-video="src/video/Siembra_Arveja_Ubaté.mp4">
+                                            <video muted preload="metadata">
+                                                <source src="src/video/Siembra_Arveja_Ubaté.mp4" type="video/mp4">
+                                                Tu navegador no soporta video.
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Siembra de Arveja en Ubaté
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="arveja"
+                                            data-video="src/video/Problemas_Cultivo_Arveja.mp4">
+                                            <video muted>
+                                                <source src="src/video/Problemas_Cultivo_Arveja.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Problemas en el cultivo de arveja
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="arveja"
+                                            data-video="src/video/Campo_a_mesa.mp4">
+                                            <video muted>
+                                                <source src="src/video/Campo_a_mesa.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Arveja: del campo a la mesa
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="arveja"
+                                            data-video="src/video/Rotación-arveja.mp4">
+                                            <video muted>
+                                                <source src="src/video/Rotación-arveja.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                La arveja como cultivo de rotación
+                                            </div>
+                                        </div>
+
+                                        <!-- ================= MAÍZ ================= -->
+                                        <div class="video-item" data-cultivo="maiz"
+                                            data-video="src/video/Maíz_de_Ubaté.mp4">
+                                            <video muted>
+                                                <source src="src/video/Maíz_de_Ubaté.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Siembra de Maíz en Ubaté
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="maiz"
+                                            data-video="src/video/Cuidado_del_Maíz_en_Ubaté.mp4">
+                                            <video muted>
+                                                <source src="src/video/Cuidado_del_Maíz_en_Ubaté.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Cuidados en la siembra de Maíz en Ubaté
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="maiz"
+                                            data-video="src/video/Curiosidades_del_Maíz.mp4">
+                                            <video muted>
+                                                <source src="src/video/Curiosidades_del_Maíz.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Datos curiosos sobre el Maíz en la Provincia de Ubaté
+                                            </div>
+                                        </div>
+
+                                        <div class="video-item" data-cultivo="maiz"
+                                            data-video="src/video/Errores_Comunes_Maíz.mp4">
+                                            <video muted>
+                                                <source src="src/video/Errores_Comunes_Maíz.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="video-overlay">▶ Ver video</div>
+                                            <div class="video-title text-center">
+                                                Errores comunes en la siembra de maíz – Provincia de Ubaté
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- Modal flotante de video -->
+                                <div id="videoModal" class="video-modal">
+                                    <div class="video-modal-content">
+                                        <span class="close-video">&times;</span>
+                                        <video id="modalVideo" controls autoplay></video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table me-1"></i>
+                            Cultivos mas representativos en la provincia
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr>
+                                        <th>Cultivo</th>
+                                        <th>Municipios principales</th>
+                                        <th>Época de siembra</th>
+
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Cultivo</th>
+                                        <th>Municipios principales</th>
+                                        <th>Época de siembra</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <td>Papa</td>
+                                        <td>Ubaté,Carupa, Guachetá, Lenguazaque</td>
+                                        <td>Abril – septiembre</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Maíz</td>
+                                        <td>Susa, Simijaca, Tausa</td>
+                                        <td>Mayo – octubre</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arveja</td>
+                                        <td>Cucunubá, Sutatausa</td>
+                                        <td>Durante todo el año</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cebolla</td>
+                                        <td>Fúquene, Carmen de Carupa</td>
+                                        <td>Todo el año</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; CultiVida 2026</div>
+                        <div> <a href="#">Privacy Policy</a> &middot; <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="src/js/scripts-info-web.js"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="src/js/datatables-simple-demo.js"></script>
+
+
+    <script src="src/js/sw-register.js"></script>
+    <script src="src/js/offline-status.js"></script>
+
+    <script src="src/js/buscador-global.js"></script>
+
+</body>
+
+</html>

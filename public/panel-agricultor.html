@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Agricultor</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-chatbot.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed" style="display: none;">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar -->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fas fa-user fa-fw"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="#" data-action="perfil">
+                            Configuración del perfil
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" data-action="logout">
+                            Cerrar sesión
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <div class="sb-sidenav-menu-heading">Agricultor</div>
+                        <a class="nav-link" href="panel-agricultor.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-robot"></i></div>
+                            ChatBot CultiVida
+                        </a>
+                        <a class="nav-link" href="perfil-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-tie"></i></div>
+                            Perfiles Profesionales
+                        </a>
+                        <a class="nav-link" href="chats-prof.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-comments"></i></div>
+                            Chats con Profesionales
+                        </a>
+                        <a class="nav-link" href="eventos-p-agri.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar"></i></div>
+                            Eventos
+                        </a>
+                        <a class="nav-link" href="comunidad.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                            Comunidad
+                        </a>
+                        <a class="nav-link" href="notif-agri.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-bell"></i></i></div>
+                            Notificaciones
+                        </a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+        <!-- LUGAR DONDE EDITAR NUEVO CONTENIDO -->
+        <div id="layoutSidenav_content">
+            <main>
+                <!-- Chatbot CultiVida -->
+                <div class="chatbot-wrapper">
+                    <div id="formulario-container" class="form-section">
+                        <div class="chatbot-header">
+                            <img src="src/img/ChatBot_Cultivida.png" alt="Logo CultiVida" class="chatbot-logo">
+                            <h2>ChatBot CultiVida</h2>
+                            <p>Tu asistente agrícola inteligente</p>
+                        </div>
+
+                        <div class="chatbot-instructions"
+                            style="background: #e9f7ef; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 5px solid #28a745; font-size: 0.9rem;">
+                            <strong>Cómo usar CultiVida:</strong>
+                            <ul style="margin: 5px 0 0 20px; padding: 0;">
+                                <li>Solo respondo dudas sobre <b>Papa, Arveja y Maíz</b> en la Provincia de Ubaté.</li>
+                                <li>Puedes enviar hasta <b>3 imágenes al día</b> en total para análisis visual.</li>
+                                <li>Sé específico en tu descripción para darte un mejor diagnóstico.</li>
+                                <li>Si necesitas cambiar de cultivo, usa el botón <b>"Nuevo caso"</b>.</li>
+                                <li>Siempre refierete específicamente al cultivo que estás consultando.</li>
+                            </ul>
+                        </div>
+
+                        <form id="agriForm">
+                            <div class="form-group">
+                                <label>Lugar:</label>
+                                <select id="pais" required>
+                                    <option value="">Selecciona</option>
+                                    <option value="colombia">Provincia de Ubaté</option>
+
+                                </select>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label>Tipo de cultivo:</label>
+                                <select id="cultivo" required>
+                                    <option value="">Selecciona</option>
+                                    <option value="papa">Papa</option>
+                                    <option value="arveja">Arveja</option>
+                                    <option value="maiz">Maíz</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Describe el problema o consulta:</label>
+                                <textarea id="descripcion" rows="4" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-chat">Iniciar Chat</button>
+                        </form>
+                    </div>
+
+                    <div id="chat-container" class="chat-section" style="display:none; flex-direction: column;">
+                        <div class="chat-header">
+                            <img src="src/img/ChatBot_Cultivida.png" alt="Logo CultiVida" class="chatbot-logo-small">
+                            <h3>Chatbot CultiVida</h3>
+                            <button id="resetChat" class="btn-reset">Nuevo caso</button>
+                        </div>
+
+                        <div id="chatBox" class="chat-box" style="flex-grow: 1; overflow-y: auto;"></div>
+
+                        <div id="imagePreviewContainer"
+                            style="display:flex; gap:10px; padding: 5px 15px; background: #f0f0f0;"></div>
+
+                        <div class="chat-input" style="display: flex; align-items: center; padding: 10px; gap: 10px;">
+
+                            <label for="imageInput"
+                                style="cursor: pointer; font-size: 1.5rem; color: #28a745; margin-bottom: 0;">
+                                <i class="fas fa-camera"></i>
+                                <input type="file" id="imageInput" accept="image/*" multiple style="display:none;">
+                            </label>
+
+                            <input type="text" id="userMessage" placeholder="Escribe tu mensaje..."
+                                style="flex-grow: 1;">
+
+                            <button id="sendMessage" class="btn-chat">
+                                <i class="fas fa-paper-plane"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <!-- FINAL DE EDITAR NUEVO CONTENIDO -->
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script type="module" src="src/js/scripts-p-agri.js"></script>
+        <script type="module" src="src/js/chatbot-agri.js"></script>
+        <script type="module" src="src/js/auth-guard.js"></script>
+        <script src="src/js/buscador-global.js"></script>
+
+</body>
+
+</html>

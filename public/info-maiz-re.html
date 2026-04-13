@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Recomendaciones papa</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="src/css/estilos-cultivos.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark">
+        <a class="navbar-brand ps-3" href="index.html">Home</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input id="buscadorInput" class="form-control" type="text" placeholder="Buscar" aria-label="Buscar..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item">
+                <a class="nav-link" href="Rol.html" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="info-web.html">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                            Espacio Informativo
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Cultivos</div>
+
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_1" aria-expanded="false" aria-controls="collapsePages_1">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Papa
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_1" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_1">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_1" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_1">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_1" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_1">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-p.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-p.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-p.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-papa-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_2" aria-expanded="false" aria-controls="collapsePages_2">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Maíz
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_2" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_2">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_2" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_2">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_2" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_2">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-m.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-m.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-m.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-maiz-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePages_3" aria-expanded="false" aria-controls="collapsePages_3">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-seedling"></i></div>
+                            Arveja
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages_3" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages_3">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                    data-bs-target="#pagesCollapseAuth_3" aria-expanded="false"
+                                    aria-controls="pagesCollapseAuth_3">
+                                    Problemas
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth_3" aria-labelledby="headingOne"
+                                    data-bs-parent="#sidenavAccordionPages_3">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="plagas-a.html">Plagas</a>
+                                        <a class="nav-link" href="enfermedades-a.html">Enfermedades</a>
+                                        <a class="nav-link" href="climaticos-a.html">Climáticos</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link" href="info-arveja-re.html">
+                                    Recomendaciones
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <!-- Header-->
+                <header class="py-5">
+                    <div class="container px-5">
+                        <div class="container px-5">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 col-xxl-6">
+                                    <div class="text-center my-5">
+                                        <h1 class="fw-bolder mb-3">Recomendaciones para el cultivo de Maíz, el secreto
+                                            para mejorar tu cosecha</h1>
+                                        <p class="lead fw-normal text-muted mb-4">Si quieres más grano con el mismo
+                                            trabajo,
+                                            estás en el lugar correcto. Te mostramos cómo manejar la tierra, la siembra
+                                            y
+                                            la nutrición del maíz de la forma más eficiente. Con estos datos, tu
+                                            producción
+                                            va a superar tus expectativas.
+                                        </p>
+                                        <a class="btn btn-success btn-lg" href="#scroll-target">Explorar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </header>
+                <!-- section one-->
+                <section class="py-5 bg-light" id="scroll-target">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0 img-cultivo-fijo"
+                                    src="src/img/Fertilizacion-maiz.jpg" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Fertilización</h2>
+                                <p class="lead fw-normal text-muted mb-0">
+                                <p><strong>Terrenos planos mecanizados</strong></p>
+                                <p> En los terrenos planos mecanizados, la fertilización debe basarse en un análisis de
+                                    suelos. El fósforo y el potasio se aplican al voleo antes de la última rastrillada,
+                                    mientras que el nitrógeno se distribuye en dos momentos: un tercio al momento de la
+                                    siembra, en banda lateral a 10 cm del surco, y el resto 25 días después, aplicado
+                                    manualmente a 10 cm de la base de las plantas.</p>
+
+                                <p><strong>Terrenos de ladera:</strong></p>
+                                <p>En terrenos de ladera, el fósforo y el potasio se aplican al momento de la siembra,
+                                    colocando el fertilizante en pequeños huecos o en corona a 10 cm del sitio de
+                                    siembra. El nitrógeno se aplica en dos etapas: una tercera parte durante la siembra
+                                    y el resto 30 días después. En zonas con alta precipitación, se recomienda usar
+                                    Nitrón 26 como fuente de nitrógeno.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section two-->
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6 order-first order-lg-last"><img
+                                    class="img-fluid rounded mb-5 mb-lg-0 img-cultivo-fijo"
+                                    src="src/img/Maiz-malezas.png" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Control de Maleza</h2>
+                                <p class="lead fw-normal text-muted mb-0">
+                                <p><strong>Terrenos planos mecanizados:</strong></p>
+                                <p>Las malezas se controlan mediante métodos mecánicos y/o químicos complementados con
+                                    prácticas culturales. Si el control mecánico se realiza a tiempo, bastan dos
+                                    cultivadas. El uso de herbicidas depende del tipo de maleza, el costo, la forma de
+                                    aplicación y la eficacia de los métodos disponibles.</p>
+                                <p><strong>Terrenos de ladera:</strong></p>
+                                <p> El maíz debe mantenerse libre de malezas, especialmente durante los primeros 45
+                                    días, mediante control manual con machete o herbicidas recomendados por un ingeniero
+                                    agrónomo. Se debe evitar el uso del azadón para prevenir la erosión del suelo.</p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- section three-->
+                <section class="py-5 bg-light" id="scroll-target">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0 img-cultivo-fijo"
+                                    src="src/img/Siembra-recomendaciones.jpg" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Siembra</h2>
+                                <p class="lead fw-normal text-muted mb-0">
+                                <p> Es aconsejable sembrar procurando que los períodos de germinación y floración
+                                    coincidan con los de mayor precipitación y la recolección no se presente en época de
+                                    lluvias.</p>
+                                <p> En los valles interandinos las mejores fechas de siembra corresponden a marzo y
+                                    septiembre y en la región andina, marzo - abril y septiembre - octubre..</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- section four -->
+                <section class="py-5">
+                    <div class="container px-5 my-5">
+                        <div class="row gx-5 align-items-center">
+                            <div class="col-lg-6 order-first order-lg-last"><img
+                                    class="img-fluid rounded mb-5 mb-lg-0 img-cultivo-fijo"
+                                    src="src/img/siembra-maiz1.jpg" alt="..." /></div>
+                            <div class="col-lg-6">
+                                <h2 class="fw-bolder">Distancia, Densidad y Profundidad de Siembra</h2>
+                                <p class="lead fw-normal text-muted mb-0">
+                                <p><strong>Terrenos planos mecanizados:</strong></p>
+                                El maíz se siembra a chorrillo con surcos de 90 a 100 cm, dejando 4 o 5 plantas por
+                                metro después del raleo, lo que permite obtener unas 50.000 plantas por hectárea con 20
+                                kg de semilla. La profundidad ideal de siembra es de 5 cm
+                                <p><strong>Terrenos de ladera:</strong></p>
+                                Los surcos se hacen a nivel o en curvas de contorno, separados 90 cm, colocando 3
+                                semillas cada 45 cm para dejar 2 plantas por sitio tras el raleo. Se obtienen unas
+                                49.000 plantas por hectárea usando 15 kg de semilla, con una profundidad de siembra de 5
+                                cm y raleo a los 15 días de la germinación.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Team members section-->
+                <section class="py-5 bg-light">
+                    <div class="container px-5 my-5">
+                        <div class="text-center">
+                            <h2 class="fw-bolder">Fuentes</h2>
+                            <p class="lead fw-normal text-muted mb-5">Aliados informativos oficiales</p>
+                        </div>
+                        <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                            <div class="col mb-5 mb-5 mb-xl-0">
+                                <div class="text-center">
+                                    <img class="img-fluid rounded-circle mb-4 px-4 " src="src/img/LOGO_EOS.jfif"
+                                        alt="..." />
+                                    <h5 class="fw-bolder">EOS Data Analytics</h5>
+                                </div>
+                            </div>
+
+
+                            <div class="col mb-5 mb-5 mb-xl-0">
+                                <div class="text-center">
+                                    <img class="img-fluid rounded-circle mb-4 px-4" src="src/img/agrosavia.jpg"
+                                        alt="..." />
+                                    <h5 class="fw-bolder">Agrosavia</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="src/js/scripts-cultivos.js"></script>
+  
+    <script src="src/js/offline-status.js"></script>
+    <script src="src/js/buscador-global.js"></script>
+
+</body>
+
+</html>
