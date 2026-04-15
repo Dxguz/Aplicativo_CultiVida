@@ -5,9 +5,6 @@
 
 // CONFIGURACIÓN DE MULTI-LLAVES
 const API_KEYS = [
-    "AIzaSyCwBAV7tJDywI-ObpiLbVWhHr1MC3XBtjE", 
-    "SEGUNDA_API_KEY", 
-    "TERCERA_API_KEY"
 ];
 
 let currentKeyIndex = 0;
