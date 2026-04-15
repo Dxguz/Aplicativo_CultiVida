@@ -2,7 +2,7 @@
  * CultiVida - Asesor Agrónomo Virtual
  */
 
-const API_KEY = "AIzaSyCwBAV7tJDywI-ObpiLbVWhHr1MC3XBtjE";
+const API_KEY = "";
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 // Variables de estado global
